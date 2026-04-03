@@ -21,6 +21,11 @@ body {
   min-height: 100vh;
 }
 
+/* Temporary scaffolding: keep empty sections scrollable until populated in later phases */
+main > section:empty {
+  min-height: 65vh;
+}
+
 img, video, svg {
   display: block;
   max-width: 100%;

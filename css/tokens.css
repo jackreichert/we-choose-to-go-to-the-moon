@@ -26,7 +26,7 @@
   --text-2xl:  2.441rem;  /*   39px */
   --text-3xl:  3.052rem;  /*   49px */
   --text-4xl:  3.815rem;  /*   61px */
-  --text-hero: clamp(3rem, 8vw, 6rem); /* fluid hero heading */
+  --text-hero: clamp(1.6rem, 3.4vw, 3rem); /* fluid hero heading */
 
   /* Font weights */
   --weight-light:   300;
