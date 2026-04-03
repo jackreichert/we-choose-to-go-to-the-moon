@@ -1,0 +1,67 @@
+/* ============================================================
+   DESIGN TOKENS — We Choose to Go to the Moon
+   All custom properties live here. Never hardcode in other files.
+   ============================================================ */
+
+:root {
+  /* --- Colors --- */
+  --color-bg:          #07070f;                  /* near-black background */
+  --color-bg-nav:      rgba(7, 7, 15, 0.92);     /* nav on scroll */
+  --color-text:        #e8e0d0;                  /* warm parchment body text */
+  --color-text-muted:  #9a9490;                  /* secondary / captions */
+  --color-accent:      #c0c8d0;                  /* silver — borders, dividers, highlights */
+  --color-accent-dim:  rgba(192, 200, 208, 0.2); /* low-opacity accent for subtle dividers */
+
+  /* --- Typography --- */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  /* Type scale — 1.25 ratio, 16px base */
+  --text-xs:   0.64rem;   /*  ~10px */
+  --text-sm:   0.8rem;    /*  ~13px */
+  --text-base: 1rem;      /*   16px */
+  --text-md:   1.25rem;   /*   20px */
+  --text-lg:   1.563rem;  /*   25px */
+  --text-xl:   1.953rem;  /*   31px */
+  --text-2xl:  2.441rem;  /*   39px */
+  --text-3xl:  3.052rem;  /*   49px */
+  --text-4xl:  3.815rem;  /*   61px */
+  --text-hero: clamp(3rem, 8vw, 6rem); /* fluid hero heading */
+
+  /* Font weights */
+  --weight-light:   300;
+  --weight-regular: 400;
+  --weight-bold:    700;
+  --weight-black:   900;
+
+  /* Line heights */
+  --leading-tight:  1.15;
+  --leading-snug:   1.35;
+  --leading-normal: 1.6;
+  --leading-loose:  1.8;
+
+  /* --- Spacing (4px base unit) --- */
+  --space-1:  0.25rem;  /*   4px */
+  --space-2:  0.5rem;   /*   8px */
+  --space-3:  0.75rem;  /* 12px */
+  --space-4:  1rem;     /* 16px */
+  --space-6:  1.5rem;   /* 24px */
+  --space-8:  2rem;     /* 32px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-24: 6rem;     /* 96px */
+  --space-32: 8rem;     /* 128px */
+
+  /* --- Layout --- */
+  --max-width-text:    68ch;    /* optimal reading width for speech */
+  --max-width-content: 1200px;  /* max page width */
+  --nav-height:        64px;
+
+  /* --- Breakpoints (use in media queries) --- */
+  /* --bp-mobile:  768px  (≤768px = mobile) */
+  /* --bp-tablet:  1024px (≤1024px = tablet) */
+
+  /* --- Transitions --- */
+  --transition-fast:   150ms ease;
+  --transition-normal: 300ms ease;
+}
