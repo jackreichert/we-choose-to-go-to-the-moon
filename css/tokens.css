@@ -11,6 +11,7 @@
   --color-text-muted:  #9a9490;                  /* secondary / captions */
   --color-accent:      #c0c8d0;                  /* silver — borders, dividers, highlights */
   --color-accent-dim:  rgba(192, 200, 208, 0.2); /* low-opacity accent for subtle dividers */
+  --color-warning:     #c0924a;                  /* warm amber — Apollo 13, partial/aborted status */
 
   /* --- Typography --- */
   --font-heading: 'Playfair Display', Georgia, serif;

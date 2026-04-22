@@ -1,0 +1,336 @@
+/* ============================================================
+   FUTURE MISSIONS — We Choose to Go to the Moon
+   Styles for #future: planned lunar missions from Artemis
+   through international and commercial programs.
+   Dashed left border signals "not yet happened."
+   All values via var(--token). No hardcoded magic numbers.
+   ============================================================ */
+
+/* ------------------------------------------------------------------
+   Section wrapper — mirrors missions.css
+   ------------------------------------------------------------------ */
+.future {
+  background-color:      var(--color-bg);
+  background-image:      linear-gradient(rgba(7, 7, 15, 0.84), rgba(7, 7, 15, 0.84)),
+                         url('../img/artemis2-earthset.jpg');
+  background-attachment: fixed;
+  background-size:       cover;
+  background-position:   center 40%;
+  background-repeat:     no-repeat;
+  padding:               var(--space-24) var(--space-4);
+  scroll-margin-top:     var(--nav-height);
+  border-top:            1px solid var(--color-accent-dim);
+}
+
+@media (hover: none) {
+  .future {
+    background-attachment: scroll;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Reading-width column
+   ------------------------------------------------------------------ */
+.future__inner {
+  max-width: var(--max-width-text);
+  margin:    0 auto;
+  padding:   0 var(--space-4);
+}
+
+/* ------------------------------------------------------------------
+   Section header — centered
+   ------------------------------------------------------------------ */
+.future__header {
+  text-align:     center;
+  margin-bottom:  var(--space-16);
+  padding-bottom: var(--space-8);
+  border-bottom:  1px solid var(--color-accent-dim);
+}
+
+.future__label {
+  font-family:    var(--font-body);
+  font-size:      var(--text-sm);
+  color:          var(--color-accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom:  var(--space-4);
+}
+
+.future__title {
+  font-family:   var(--font-heading);
+  font-size:     var(--text-2xl);
+  font-weight:   var(--weight-bold);
+  color:         var(--color-text);
+  line-height:   var(--leading-tight);
+  margin-bottom: var(--space-4);
+}
+
+.future__subtitle {
+  font-family: var(--font-body);
+  font-size:   var(--text-sm);
+  color:       var(--color-text-muted);
+}
+
+/* ------------------------------------------------------------------
+   Artemis spotlight card — breakout, silver border, tinted bg
+   Mirrors .missions__entry--spotlight from missions.css
+   ------------------------------------------------------------------ */
+.future__spotlight {
+  border:        2px solid var(--color-accent);
+  margin-left:   calc(-1 * var(--space-8));
+  margin-right:  calc(-1 * var(--space-8));
+  padding:       var(--space-8);
+  background:    color-mix(in srgb, var(--color-accent) 6%, transparent);
+  margin-bottom: var(--space-12);
+}
+
+.future__spotlight-label {
+  font-family:    var(--font-body);
+  font-size:      var(--text-sm);
+  color:          var(--color-accent);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom:  var(--space-2);
+}
+
+.future__spotlight .future__name {
+  font-family: var(--font-heading);
+  font-size:   var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color:       var(--color-text);
+  line-height: var(--leading-tight);
+}
+
+.future__spotlight .future__name a {
+  color:                 var(--color-text);
+  text-decoration:       underline;
+  text-underline-offset: 0.15em;
+  text-decoration-color: var(--color-accent-dim);
+  transition:            text-decoration-color var(--transition-fast),
+                         color var(--transition-fast);
+}
+
+.future__spotlight .future__name a:hover,
+.future__spotlight .future__name a:focus-visible {
+  color:                 var(--color-accent);
+  text-decoration-color: var(--color-accent);
+  outline:               none;
+}
+
+.future__prose-intro {
+  font-family:   var(--font-body);
+  font-size:     var(--text-sm);
+  color:         var(--color-text);
+  line-height:   var(--leading-normal);
+  margin-top:    var(--space-4);
+}
+
+/* ------------------------------------------------------------------
+   Program group headers
+   ------------------------------------------------------------------ */
+.future__program-header {
+  font-family:    var(--font-heading);
+  font-size:      var(--text-md);
+  font-weight:    var(--weight-bold);
+  color:          var(--color-text);
+  margin-top:     var(--space-12);
+  margin-bottom:  var(--space-4);
+  padding-bottom: var(--space-2);
+  border-bottom:  1px solid var(--color-accent-dim);
+}
+
+.future__program-header a {
+  color:           var(--color-text);
+  text-decoration: none;
+  transition:      color var(--transition-fast);
+}
+
+.future__program-header a:hover,
+.future__program-header a:focus-visible {
+  color:   var(--color-accent);
+  outline: none;
+}
+
+.future__program-label {
+  font-family:    var(--font-body);
+  font-size:      var(--text-xs);
+  color:          var(--color-text-muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom:  var(--space-6);
+}
+
+/* ------------------------------------------------------------------
+   Future timeline entry — dashed left border (not solid)
+   Key visual difference from Phase 4 past entries
+   ------------------------------------------------------------------ */
+.future__entry {
+  border-left:   2px dashed var(--color-accent-dim);
+  padding-left:  var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+/* ------------------------------------------------------------------
+   Entry header — date, name, country, status on one line
+   ------------------------------------------------------------------ */
+.future__entry-header {
+  display:       flex;
+  flex-wrap:     wrap;
+  gap:           var(--space-2);
+  align-items:   baseline;
+  margin-bottom: var(--space-1);
+}
+
+.future__date {
+  font-family: var(--font-body);
+  font-size:   var(--text-sm);
+  color:       var(--color-text-muted);
+}
+
+.future__name {
+  font-family:           var(--font-heading);
+  font-size:             var(--text-md);
+  font-weight:           var(--weight-bold);
+  color:                 var(--color-text);
+  text-decoration:       none;
+}
+
+a.future__name {
+  text-decoration:       underline;
+  text-underline-offset: 0.15em;
+  text-decoration-color: var(--color-accent-dim);
+  transition:            text-decoration-color var(--transition-fast),
+                         color var(--transition-fast);
+}
+
+a.future__name:hover,
+a.future__name:focus-visible {
+  color:                 var(--color-accent);
+  text-decoration-color: var(--color-accent);
+  outline:               none;
+}
+
+.future__country {
+  font-family:    var(--font-body);
+  font-size:      var(--text-xs);
+  color:          var(--color-text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.future__status {
+  font-family:    var(--font-body);
+  font-size:      var(--text-xs);
+  color:          var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* ------------------------------------------------------------------
+   Status modifiers
+   ------------------------------------------------------------------ */
+.future__status--success {
+  color: var(--color-accent);
+}
+
+/* Completed entries swap dashed border for solid */
+.future__entry--completed {
+  border-left-style: solid;
+}
+
+/* ------------------------------------------------------------------
+   Crew line
+   ------------------------------------------------------------------ */
+.future__crew {
+  font-family: var(--font-body);
+  font-size:   var(--text-xs);
+  color:       var(--color-text-muted);
+  font-style:  italic;
+}
+
+/* ------------------------------------------------------------------
+   Entry description
+   ------------------------------------------------------------------ */
+.future__description {
+  font-family:   var(--font-body);
+  font-size:     var(--text-sm);
+  color:         var(--color-text);
+  line-height:   var(--leading-normal);
+  margin-bottom: var(--space-1);
+}
+
+/* ------------------------------------------------------------------
+   Artemis spotlight photo — full-bleed within the card
+   ------------------------------------------------------------------ */
+.future__spotlight-photo {
+  margin:  var(--space-6) calc(-1 * var(--space-8));
+}
+
+.future__spotlight-img {
+  display:         block;
+  width:           100%;
+  height:          auto;
+  max-height:      55vh;
+  object-fit:      cover;
+  object-position: center 35%;
+}
+
+.future__spotlight-caption {
+  display:        flex;
+  justify-content: space-between;
+  align-items:    baseline;
+  padding:        var(--space-2) var(--space-8);
+  font-family:    var(--font-body);
+  font-size:      var(--text-xs);
+  color:          var(--color-text-muted);
+  font-style:     italic;
+}
+
+.future__spotlight-credit {
+  font-style:     normal;
+  letter-spacing: 0.08em;
+  flex-shrink:    0;
+  margin-left:    var(--space-4);
+}
+
+/* ------------------------------------------------------------------
+   Responsive — mobile (<=768px)
+   ------------------------------------------------------------------ */
+@media (max-width: 768px) {
+  .future {
+    padding: var(--space-16) var(--space-2);
+  }
+
+  .future__title {
+    font-size: var(--text-md);
+  }
+
+  .future__spotlight {
+    margin-left:  0;
+    margin-right: 0;
+    padding:      var(--space-4);
+  }
+
+  .future__spotlight-photo {
+    margin: var(--space-4) calc(-1 * var(--space-4));
+  }
+
+  .future__spotlight-caption {
+    padding: var(--space-2) var(--space-4);
+  }
+
+  .future__spotlight .future__name {
+    font-size: var(--text-md);
+  }
+
+  .future__entry {
+    padding-left: var(--space-4);
+  }
+
+  .future__entry-header {
+    gap: var(--space-1);
+  }
+
+  .future__name {
+    font-size: var(--text-base);
+  }
+}

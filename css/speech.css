@@ -1,1 +1,375 @@
-/* Phase 3 — Speech and video section styles */
+/* ============================================================
+   SPEECH SECTION — We Choose to Go to the Moon
+   Styles for #speech: reading-width layout, Playfair body text,
+   silver pull-quotes, header/footer treatment.
+   All values via var(--token). No hardcoded magic numbers.
+   ============================================================ */
+
+/* ------------------------------------------------------------------
+   Section wrapper
+   ------------------------------------------------------------------ */
+.speech {
+  background-color:      var(--color-bg);
+  background-image:      linear-gradient(rgba(7, 7, 15, 0.88), rgba(7, 7, 15, 0.88)),
+                         url('../img/apollo11-surface.jpg');
+  background-attachment: fixed;
+  background-size:       cover;
+  background-position:   center;
+  background-repeat:     no-repeat;
+  padding:               var(--space-24) var(--space-4);
+  scroll-margin-top:     var(--nav-height);
+  border-top:            1px solid var(--color-accent-dim);
+}
+
+@media (hover: none) {
+  .speech {
+    background-attachment: scroll;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Reading-width column
+   ------------------------------------------------------------------ */
+.speech__inner {
+  max-width: var(--max-width-text);
+  margin:    0 auto;
+  padding:   0 var(--space-4);
+}
+
+/* ------------------------------------------------------------------
+   Section header — label, title, meta, public-domain notice
+   ------------------------------------------------------------------ */
+.speech__header {
+  text-align:     center;
+  margin-bottom:  var(--space-16);
+  padding-bottom: var(--space-8);
+  border-bottom:  1px solid var(--color-accent-dim);
+}
+
+/* Small caps label — "Address at Rice University…" */
+.speech__label {
+  font-family:    var(--font-body);
+  font-size:      var(--text-sm);
+  color:          var(--color-accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom:  var(--space-4);
+}
+
+/* h2 — "We Choose to Go to the Moon" */
+.speech__title {
+  font-family:   var(--font-heading);
+  font-size:     var(--text-2xl);
+  font-weight:   var(--weight-bold);
+  color:         var(--color-text);
+  line-height:   var(--leading-tight);
+  margin-bottom: var(--space-6);
+}
+
+/* Attribution line — speaker, date */
+.speech__meta {
+  font-family:   var(--font-body);
+  font-size:     var(--text-sm);
+  color:         var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+/* Public domain notice */
+.speech__pd {
+  font-size:  var(--text-xs);
+  color:      var(--color-text-muted);
+  font-style: italic;
+}
+
+/* ------------------------------------------------------------------
+   Speech body — article wrapper
+   ------------------------------------------------------------------ */
+.speech__body {
+  /* block-level; no extra spacing needed — paragraphs handle rhythm */
+}
+
+.speech__body p {
+  font-family:   'Lora', Georgia, serif;
+  font-size:     var(--text-base);
+  color:         var(--color-text);
+  line-height:   var(--leading-loose);
+  margin-bottom: var(--space-6);
+}
+
+.speech__body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------------
+   Pull-quotes — blockquote passages
+   Silver left-rule, Playfair italic, larger type
+   ------------------------------------------------------------------ */
+.pull-quote {
+  border-left: 3px solid var(--color-accent);
+  margin:      var(--space-12) 0;
+  padding:     var(--space-4) var(--space-8);
+  /* Subtle silver tint — 4% opacity of accent colour, color-mix is baseline 2024+ */
+  background:  color-mix(in srgb, var(--color-accent) 4%, transparent);
+}
+
+.pull-quote p {
+  font-family:   var(--font-heading);
+  font-size:     var(--text-lg);
+  font-style:    italic;
+  color:         var(--color-text);
+  line-height:   var(--leading-snug);
+  margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------------
+   Section footer — source attribution links
+   ------------------------------------------------------------------ */
+.speech__footer {
+  margin-top:    var(--space-16);
+  padding-top:   var(--space-8);
+  border-top:    1px solid var(--color-accent-dim);
+  font-size:     var(--text-xs);
+  color:         var(--color-text-muted);
+  text-align:    center;
+}
+
+.speech__footer a {
+  color:           var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition:      color var(--transition-fast);
+}
+
+.speech__footer a:hover,
+.speech__footer a:focus-visible {
+  color:           var(--color-text);
+  outline:         none;
+}
+
+/* ------------------------------------------------------------------
+   Responsive — narrow viewports
+   ------------------------------------------------------------------ */
+@media (max-width: 768px) {
+  .speech {
+    padding: var(--space-16) var(--space-2);
+  }
+
+  .speech__title {
+    font-size: var(--text-xl);
+  }
+
+  .pull-quote {
+    margin:  var(--space-8) 0;
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .pull-quote p {
+    font-size: var(--text-md);
+  }
+}
+
+/* ============================================================
+   VIDEO SECTION — YouTube facade embed
+   ============================================================ */
+
+.video {
+  background:        var(--color-bg);
+  padding:           var(--space-24) var(--space-4);
+  scroll-margin-top: var(--nav-height);
+  border-top:        1px solid var(--color-accent-dim);
+}
+
+.video__inner {
+  max-width: 800px;
+  margin:    0 auto;
+  text-align: center;
+}
+
+.video__title {
+  font-family:   var(--font-heading);
+  font-size:     var(--text-2xl);
+  font-weight:   var(--weight-bold);
+  color:         var(--color-text);
+  margin-bottom: var(--space-4);
+}
+
+.video__caption {
+  font-family:   var(--font-body);
+  font-size:     var(--text-sm);
+  color:         var(--color-text-muted);
+  margin-bottom: var(--space-8);
+  letter-spacing: 0.04em;
+}
+
+.video__facade {
+  position:   relative;
+  cursor:     pointer;
+  background: #000;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  overflow:   hidden;
+  outline:    none;
+}
+
+.video__facade:focus-visible {
+  box-shadow: 0 0 0 3px var(--color-accent);
+}
+
+.video__thumbnail {
+  width:      100%;
+  height:     100%;
+  object-fit: cover;
+  display:    block;
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.video__facade:hover .video__thumbnail,
+.video__facade:focus-visible .video__thumbnail {
+  opacity:   0.85;
+  transform: scale(1.02);
+}
+
+.video__overlay {
+  position:   absolute;
+  inset:      0;
+  background: rgba(7, 7, 15, 0.35);
+  transition: background var(--transition-normal);
+}
+
+.video__facade:hover .video__overlay,
+.video__facade:focus-visible .video__overlay {
+  background: rgba(7, 7, 15, 0.15);
+}
+
+.video__play-btn {
+  position:  absolute;
+  top:       50%;
+  left:      50%;
+  transform: translate(-50%, -50%);
+  border:    none;
+  background: none;
+  padding:   0;
+  transition: transform var(--transition-fast);
+}
+
+.video__facade:hover .video__play-btn,
+.video__facade:focus-visible .video__play-btn {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* iframe replaces facade after click */
+.video__iframe {
+  width:        100%;
+  aspect-ratio: 16 / 9;
+  border:       none;
+  border-radius: 4px;
+  display:      block;
+}
+
+.video__pd {
+  font-size:    var(--text-xs);
+  color:        var(--color-text-muted);
+  margin-top:   var(--space-4);
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   VIDEO MODAL — cinematic fullscreen lightbox
+   ============================================================ */
+
+.video-modal {
+  position:        fixed;
+  inset:           0;
+  z-index:         1000;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  padding:         var(--space-8);
+  visibility:      hidden;
+  opacity:         0;
+  pointer-events:  none;
+  transition:      opacity var(--transition-normal),
+                   visibility var(--transition-normal);
+}
+
+.video-modal.is-open {
+  visibility:     visible;
+  opacity:        1;
+  pointer-events: auto;
+}
+
+.video-modal__backdrop {
+  position:                absolute;
+  inset:                   0;
+  background:              rgba(4, 4, 10, 0.96);
+  backdrop-filter:         blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.video-modal__container {
+  position:   relative;
+  width:      min(90vw, 1280px);
+  z-index:    1;
+  transform:  scale(0.96);
+  transition: transform var(--transition-normal);
+}
+
+.video-modal.is-open .video-modal__container {
+  transform: scale(1);
+}
+
+.video-modal__close {
+  position:        absolute;
+  top:             calc(-1 * var(--space-8));
+  right:           calc(-1 * var(--space-2));
+  width:           44px;
+  height:          44px;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  background:      none;
+  border:          none;
+  color:           var(--color-text-muted);
+  cursor:          pointer;
+  padding:         0;
+  border-radius:   2px;
+  transition:      color var(--transition-fast);
+}
+
+.video-modal__close:hover {
+  color: var(--color-text);
+}
+
+.video-modal__close:focus-visible {
+  outline:    none;
+  box-shadow: 0 0 0 2px var(--color-accent);
+  color:      var(--color-text);
+}
+
+.video-modal__frame {
+  aspect-ratio: 16 / 9;
+  background:   #000;
+  width:        100%;
+}
+
+.video-modal__iframe {
+  display: block;
+  width:   100%;
+  height:  100%;
+  border:  none;
+}
+
+@media (max-width: 768px) {
+  .video-modal {
+    padding:     var(--space-4) var(--space-2);
+    align-items: center;
+  }
+
+  .video-modal__container {
+    width: 100%;
+  }
+
+  .video-modal__close {
+    top: calc(-1 * var(--space-12));
+  }
+}

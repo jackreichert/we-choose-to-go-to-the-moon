@@ -1,1 +1,381 @@
-/* Phase 4 — Missions timeline styles */
+/* ============================================================
+   MISSIONS TIMELINE — We Choose to Go to the Moon
+   Styles for #missions: chronological timeline of all lunar
+   missions from 1959 to present. Left-border entries,
+   decade dividers, Apollo 11 spotlight, Apollo 13 amber.
+   All values via var(--token). No hardcoded magic numbers.
+   ============================================================ */
+
+/* ------------------------------------------------------------------
+   Section wrapper
+   ------------------------------------------------------------------ */
+.missions {
+  background-color:      var(--color-bg);
+  background-image:      linear-gradient(rgba(7, 7, 15, 0.84), rgba(7, 7, 15, 0.84)),
+                         url('../img/blue-marble.jpg');
+  background-attachment: fixed;
+  background-size:       cover;
+  background-position:   center;
+  background-repeat:     no-repeat;
+  padding:               var(--space-24) var(--space-4);
+  scroll-margin-top:     var(--nav-height);
+  border-top:            1px solid var(--color-accent-dim);
+}
+
+@media (hover: none) {
+  .missions {
+    background-attachment: scroll;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Reading-width column
+   ------------------------------------------------------------------ */
+.missions__inner {
+  max-width: var(--max-width-text);
+  margin:    0 auto;
+  padding:   0 var(--space-4);
+}
+
+/* ------------------------------------------------------------------
+   Section header
+   ------------------------------------------------------------------ */
+.missions__header {
+  text-align:     center;
+  margin-bottom:  var(--space-16);
+  padding-bottom: var(--space-8);
+  border-bottom:  1px solid var(--color-accent-dim);
+}
+
+.missions__label {
+  font-family:    var(--font-body);
+  font-size:      var(--text-sm);
+  color:          var(--color-accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom:  var(--space-4);
+}
+
+.missions__title {
+  font-family:   var(--font-heading);
+  font-size:     var(--text-2xl);
+  font-weight:   var(--weight-bold);
+  color:         var(--color-text);
+  line-height:   var(--leading-tight);
+  margin-bottom: var(--space-4);
+}
+
+.missions__subtitle {
+  font-family: var(--font-body);
+  font-size:   var(--text-sm);
+  color:       var(--color-text-muted);
+}
+
+/* ------------------------------------------------------------------
+   Timeline container
+   ------------------------------------------------------------------ */
+.missions__timeline {
+  /* Block container — entries stack vertically */
+}
+
+/* ------------------------------------------------------------------
+   Decade dividers — centered label with hairline rules
+   ------------------------------------------------------------------ */
+.missions__decade {
+  display:     flex;
+  align-items: center;
+  gap:         var(--space-4);
+  margin:      var(--space-12) 0 var(--space-8);
+}
+
+.missions__decade:first-child {
+  margin-top: 0;
+}
+
+.missions__decade::before,
+.missions__decade::after {
+  content:    '';
+  flex:       1;
+  height:     1px;
+  background: var(--color-accent-dim);
+}
+
+.missions__decade-label {
+  font-family:    var(--font-body);
+  font-size:      var(--text-sm);
+  color:          var(--color-accent);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space:    nowrap;
+}
+
+/* ------------------------------------------------------------------
+   Standard timeline entry — left silver border
+   ------------------------------------------------------------------ */
+.missions__entry {
+  border-left:   3px solid var(--color-accent);
+  padding-left:  var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+/* ------------------------------------------------------------------
+   Entry header — date, name, country, status on one line
+   ------------------------------------------------------------------ */
+.missions__entry-header {
+  display:       flex;
+  flex-wrap:     wrap;
+  gap:           var(--space-2);
+  align-items:   baseline;
+  margin-bottom: var(--space-1);
+}
+
+.missions__date {
+  font-family: var(--font-body);
+  font-size:   var(--text-sm);
+  color:       var(--color-text-muted);
+}
+
+.missions__name {
+  font-family:           var(--font-heading);
+  font-size:             var(--text-md);
+  font-weight:           var(--weight-bold);
+  color:                 var(--color-text);
+  text-decoration:       none;
+}
+
+/* When missions__name is an <a> link */
+a.missions__name {
+  text-decoration:       underline;
+  text-underline-offset: 0.15em;
+  text-decoration-color: var(--color-accent-dim);
+  transition:            text-decoration-color var(--transition-fast),
+                         color var(--transition-fast);
+}
+
+a.missions__name:hover,
+a.missions__name:focus-visible {
+  color:                 var(--color-accent);
+  text-decoration-color: var(--color-accent);
+  outline:               none;
+}
+
+.missions__country {
+  font-family:    var(--font-body);
+  font-size:      var(--text-xs);
+  color:          var(--color-text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------------
+   Status indicators — color-coded by outcome
+   ------------------------------------------------------------------ */
+.missions__status {
+  font-family:    var(--font-body);
+  font-size:      var(--text-xs);
+  letter-spacing: 0.05em;
+}
+
+.missions__status--success {
+  color: var(--color-accent);
+}
+
+.missions__status--partial {
+  color: var(--color-warning);
+}
+
+.missions__status--failure {
+  color: var(--color-text-muted);
+}
+
+.missions__status--aborted {
+  color: var(--color-warning);
+}
+
+/* ------------------------------------------------------------------
+   Description and crew lines
+   ------------------------------------------------------------------ */
+.missions__description {
+  font-family:   var(--font-body);
+  font-size:     var(--text-sm);
+  color:         var(--color-text);
+  line-height:   var(--leading-normal);
+  margin-bottom: var(--space-1);
+}
+
+.missions__description--note {
+  font-style: italic;
+  color:      var(--color-text-muted);
+}
+
+.missions__crew {
+  font-family: var(--font-body);
+  font-size:   var(--text-xs);
+  color:       var(--color-text-muted);
+  font-style:  italic;
+}
+
+.missions__landing-site {
+  font-family:    var(--font-body);
+  font-size:      var(--text-xs);
+  color:          var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* ------------------------------------------------------------------
+   Failure / dimmed entries — reduced prominence
+   ------------------------------------------------------------------ */
+.missions__entry:has(.missions__status--failure) {
+  border-left-color: var(--color-accent-dim);
+  opacity: 0.75;
+}
+
+/* ------------------------------------------------------------------
+   Apollo 11 spotlight card — breakout, silver border, tinted bg
+   ------------------------------------------------------------------ */
+.missions__entry--spotlight {
+  /* Override default left-border with full silver border */
+  border-left:  none;
+  border:       2px solid var(--color-accent);
+
+  /* Break out of reading column */
+  margin-left:  calc(-1 * var(--space-8));
+  margin-right: calc(-1 * var(--space-8));
+  padding:      var(--space-8);
+
+  /* Subtle silver tint background */
+  background: color-mix(in srgb, var(--color-accent) 6%, transparent);
+
+  margin-bottom: var(--space-12);
+}
+
+.missions__spotlight-label {
+  font-family:    var(--font-body);
+  font-size:      var(--text-sm);
+  color:          var(--color-accent);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom:  var(--space-2);
+}
+
+.missions__entry--spotlight .missions__name {
+  font-size: var(--text-lg);
+}
+
+.missions__entry--spotlight .missions__description {
+  font-size:   var(--text-base);
+  line-height: var(--leading-loose);
+}
+
+.missions__spotlight-quote {
+  border-left:  3px solid var(--color-accent);
+  padding-left: var(--space-6);
+  margin-top:   var(--space-6);
+}
+
+.missions__spotlight-quote p {
+  font-family: var(--font-heading);
+  font-style:  italic;
+  font-size:   var(--text-md);
+  color:       var(--color-text);
+  line-height: var(--leading-snug);
+}
+
+.missions__spotlight-quote footer {
+  font-family: var(--font-body);
+  font-size:   var(--text-xs);
+  color:       var(--color-text-muted);
+  margin-top:  var(--space-2);
+}
+
+/* ------------------------------------------------------------------
+   Apollo 13 aborted — amber warning treatment
+   ------------------------------------------------------------------ */
+.missions__entry--aborted {
+  border-left-color: var(--color-warning);
+}
+
+.missions__entry--aborted .missions__status--aborted {
+  color: var(--color-warning);
+}
+
+.missions__entry--aborted .missions__description {
+  line-height: var(--leading-loose);
+}
+
+/* ------------------------------------------------------------------
+   Responsive — narrow viewports (mobile)
+   ------------------------------------------------------------------ */
+@media (max-width: 768px) {
+  .missions {
+    padding: var(--space-16) var(--space-2);
+  }
+
+  .missions__title {
+    font-size: var(--text-xl);
+  }
+
+  .missions__entry {
+    padding-left: var(--space-4);
+  }
+
+  .missions__entry-header {
+    gap: var(--space-1);
+  }
+
+  .missions__name {
+    font-size: var(--text-base);
+  }
+
+  /* Spotlight card: collapse breakout to fit mobile viewport */
+  .missions__entry--spotlight {
+    margin-left:  0;
+    margin-right: 0;
+    padding:      var(--space-4);
+  }
+
+  .missions__entry--spotlight .missions__name {
+    font-size: var(--text-md);
+  }
+
+  .missions__spotlight-quote {
+    padding-left: var(--space-4);
+  }
+
+  .missions__spotlight-quote p {
+    font-size: var(--text-base);
+  }
+
+  .missions__decade {
+    margin: var(--space-8) 0 var(--space-6);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Section footer — source attribution
+   ------------------------------------------------------------------ */
+.missions__footer {
+  margin-top:    var(--space-16);
+  padding-top:   var(--space-8);
+  border-top:    1px solid var(--color-accent-dim);
+  font-size:     var(--text-xs);
+  color:         var(--color-text-muted);
+  text-align:    center;
+}
+
+.missions__footer p + p {
+  margin-top: var(--space-2);
+}
+
+.missions__footer a {
+  color:                  var(--color-accent);
+  text-decoration:        underline;
+  text-underline-offset:  0.2em;
+  transition:             color var(--transition-fast);
+}
+
+.missions__footer a:hover,
+.missions__footer a:focus-visible {
+  color:   var(--color-text);
+  outline: none;
+}

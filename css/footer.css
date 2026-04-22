@@ -1,1 +1,119 @@
-/* Phase 5 — Footer styles */
+/* ============================================================
+   FOOTER — We Choose to Go to the Moon
+   Closing quote, attribution links, public domain notice,
+   back-to-top link. Centered single-column layout.
+   All values via var(--token). No hardcoded magic numbers.
+   ============================================================ */
+
+/* ------------------------------------------------------------------
+   Footer wrapper
+   ------------------------------------------------------------------ */
+.foot {
+  background:  var(--color-bg);
+  padding:     var(--space-24) var(--space-4);
+  border-top:  1px solid var(--color-accent-dim);
+  text-align:  center;
+}
+
+.foot__inner {
+  max-width: var(--max-width-text);
+  margin:    0 auto;
+  padding:   0 var(--space-4);
+}
+
+/* ------------------------------------------------------------------
+   Closing JFK quote
+   ------------------------------------------------------------------ */
+.foot__closing-quote {
+  margin-bottom:  var(--space-16);
+  padding-bottom: var(--space-8);
+  border-bottom:  1px solid var(--color-accent-dim);
+}
+
+.foot__closing-quote blockquote p {
+  font-family:   var(--font-heading);
+  font-style:    italic;
+  font-size:     var(--text-md);
+  color:         var(--color-text);
+  line-height:   var(--leading-snug);
+  margin-bottom: var(--space-4);
+}
+
+.foot__closing-quote cite {
+  font-family: var(--font-body);
+  font-size:   var(--text-xs);
+  color:       var(--color-text-muted);
+  font-style:  normal;
+}
+
+/* ------------------------------------------------------------------
+   Attribution links row
+   ------------------------------------------------------------------ */
+.foot__attribution {
+  display:         flex;
+  flex-wrap:       wrap;
+  justify-content: center;
+  gap:             var(--space-8);
+  margin-bottom:   var(--space-8);
+}
+
+.foot__attribution a {
+  font-family:           var(--font-body);
+  font-size:             var(--text-sm);
+  color:                 var(--color-accent);
+  text-decoration:       underline;
+  text-underline-offset: 0.2em;
+  transition:            color var(--transition-fast);
+}
+
+.foot__attribution a:hover,
+.foot__attribution a:focus-visible {
+  color:   var(--color-text);
+  outline: none;
+}
+
+/* ------------------------------------------------------------------
+   Meta row — public domain notice + copyright
+   ------------------------------------------------------------------ */
+.foot__meta {
+  font-size:   var(--text-xs);
+  color:       var(--color-text-muted);
+  line-height: var(--leading-normal);
+}
+
+.foot__meta p + p {
+  margin-top: var(--space-2);
+}
+
+/* ------------------------------------------------------------------
+   Back to top link
+   ------------------------------------------------------------------ */
+.foot__back-to-top {
+  display:         inline-block;
+  margin-top:      var(--space-8);
+  font-family:     var(--font-body);
+  font-size:       var(--text-sm);
+  color:           var(--color-text-muted);
+  text-decoration: none;
+  transition:      color var(--transition-fast);
+}
+
+.foot__back-to-top:hover,
+.foot__back-to-top:focus-visible {
+  color:   var(--color-accent);
+  outline: none;
+}
+
+/* ------------------------------------------------------------------
+   Responsive — mobile (<=768px)
+   ------------------------------------------------------------------ */
+@media (max-width: 768px) {
+  .foot {
+    padding: var(--space-16) var(--space-2);
+  }
+
+  .foot__attribution {
+    flex-direction: column;
+    gap:            var(--space-4);
+  }
+}

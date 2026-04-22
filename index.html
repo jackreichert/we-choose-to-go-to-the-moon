@@ -9,16 +9,20 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <!-- Playfair Display: display=block hides briefly instead of swapping — prevents hero quote jump -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=block" rel="stylesheet">
+  <!-- Body/reading fonts: display=swap is fine — not render-blocking for hero -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 
   <!-- Styles (tokens first) -->
-  <link rel="stylesheet" href="css/tokens.css?v=20260403e">
-  <link rel="stylesheet" href="css/reset.css?v=20260403e">
-  <link rel="stylesheet" href="css/nav.css?v=20260403e">
-  <link rel="stylesheet" href="css/hero.css?v=20260403e">
-  <link rel="stylesheet" href="css/speech.css?v=20260403e">
-  <link rel="stylesheet" href="css/missions.css?v=20260403e">
-  <link rel="stylesheet" href="css/footer.css?v=20260403e">
+  <link rel="stylesheet" href="css/tokens.css?v=20260403f">
+  <link rel="stylesheet" href="css/reset.css?v=20260403f">
+  <link rel="stylesheet" href="css/nav.css?v=20260403f">
+  <link rel="stylesheet" href="css/hero.css?v=20260403f">
+  <link rel="stylesheet" href="css/speech.css?v=20260422">
+  <link rel="stylesheet" href="css/missions.css?v=20260422">
+  <link rel="stylesheet" href="css/future.css?v=20260422">
+  <link rel="stylesheet" href="css/footer.css?v=20260403f">
 </head>
 <body>
 
@@ -31,8 +35,8 @@
         <span class="nav__hamburger-bar"></span>
       </button>
       <ul class="nav__menu" id="nav-menu" role="list">
-        <li><a href="#speech" class="nav__link">Speech</a></li>
         <li><a href="#video" class="nav__link">Video</a></li>
+        <li><a href="#speech" class="nav__link">Speech</a></li>
         <li><a href="#missions" class="nav__link">Missions</a></li>
         <li><a href="#future" class="nav__link">Future</a></li>
       </ul>
@@ -49,7 +53,7 @@
             <cite>President John F. Kennedy &mdash; September 12, 1962</cite>
           </footer>
         </blockquote>
-        <a class="hero__scroll-cue" href="#speech" aria-label="Scroll to speech section">
+        <a class="hero__scroll-cue" href="#video" aria-label="Scroll to video section">
           <span class="hero__scroll-label">Scroll</span>
           <svg class="hero__scroll-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -57,15 +61,934 @@
         </a>
       </div>
     </section>
-    <section id="speech"><!-- Phase 3 --></section>
-    <section id="video"><!-- Phase 3 --></section>
-    <section id="missions"><!-- Phase 4 --></section>
-    <section id="future"><!-- Phase 5 --></section>
+    <section id="video" class="video" aria-label="JFK Moon Speech — Video Recording">
+      <div class="video__inner">
+        <h2 class="video__title">Watch the Speech</h2>
+        <p class="video__caption">President Kennedy delivers his address at Rice University, Houston, Texas — September 12, 1962</p>
+        <div class="video__facade" data-ytid="QXqlziZV63k" role="button" tabindex="0"
+             aria-label="Play: JFK We Choose to Go to the Moon speech (opens in lightbox)">
+          <img
+            class="video__thumbnail"
+            src="https://i.ytimg.com/vi/QXqlziZV63k/maxresdefault.jpg"
+            alt="JFK delivering the We Choose to Go to the Moon speech at Rice University, 1962"
+            width="1280"
+            height="720"
+            loading="lazy"
+          >
+          <div class="video__overlay" aria-hidden="true"></div>
+          <button class="video__play-btn" aria-hidden="true" tabindex="-1">
+            <svg width="68" height="48" viewBox="0 0 68 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="68" height="48" rx="10" fill="rgba(0,0,0,0.75)"/>
+              <path d="M27 15l22 9-22 9V15z" fill="white"/>
+            </svg>
+          </button>
+        </div>
+        <p class="video__pd">Video via YouTube. Speech is a public domain work of the United States federal government.</p>
+      </div>
+      <a class="scroll-cue" href="#speech" aria-label="Scroll to speech section">
+        <svg class="scroll-cue__arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </section>
+    <section id="speech" class="speech" aria-label="JFK Moon Speech — Full Text">
+  <div class="speech__inner">
+
+    <header class="speech__header">
+      <p class="speech__label">Address at Rice University on the Nation’s Space Effort</p>
+      <h2 class="speech__title">We Choose to Go to the Moon</h2>
+      <p class="speech__meta">President John F. Kennedy &mdash; Rice University, Houston, Texas &mdash; September 12, 1962</p>
+      <p class="speech__pd">Public domain work of the United States federal government &mdash; 17&nbsp;U.S.C.&nbsp;&sect;&nbsp;105</p>
+    </header>
+
+    <article class="speech__body">
+
+      <p>President Pitzer, Mr. Vice President, Governor, Congressman Thomas, Senator Wiley, and Congressman Miller, Mr. Webb, Mr. Bell, scientists, distinguished guests, and ladies and gentlemen:</p>
+
+      <p>I appreciate your president having made me an honorary visiting professor, and I will assure you that my first lecture will be very brief.</p>
+
+      <p>I am delighted to be here and I&rsquo;m particularly delighted to be here on this occasion.</p>
+
+      <p>We meet at a college noted for knowledge, in a city noted for progress, in a state noted for strength, and we stand in need of all three, for we meet in an hour of change and challenge, in a decade of hope and fear, in an age of both knowledge and ignorance. The greater our knowledge increases, the greater our ignorance unfolds.</p>
+
+      <p>Despite the striking fact that most of the scientists that the world has ever known are alive and working today, despite the fact that this Nation&rsquo;s own scientific manpower is doubling every 12 years in a rate of growth more than three times that of our population as a whole, despite that, the vast stretches of the unknown and the unanswered and the unfinished still far outstrip our collective comprehension.</p>
+
+      <p>No man can fully grasp how far and how fast we have come, but condense, if you will, the 50 thousand years of man&rsquo;s recorded history in a time span of but a half-century. Stated in these terms, we know very little about the first 40 years, except at the end of them advanced man had learned to use the skins of animals to cover them. Then about 10 years ago, under this standard, man emerged from his caves to construct other kinds of shelter. Only five years ago man learned to write and use a cart with wheels. Christianity began less than two years ago. The printing press came this year, and then less than two months ago, during this whole 50-year span of human history, the steam engine provided a new source of power. Newton explored the meaning of gravity. Last month electric lights and telephones and automobiles and airplanes became available. Only last week did we develop penicillin and television and nuclear power, and now if America&rsquo;s new spacecraft succeeds in reaching Venus, we will have literally reached the stars before midnight tonight.</p>
+
+      <p>This is a breathtaking pace, and such a pace cannot help but create new ills as it dispels old, new ignorance, new problems, new dangers. Surely the opening vistas of space promise high costs and hardships, as well as high reward.</p>
+
+      <p>So it is not surprising that some would have us stay where we are a little longer to rest, to wait. But this city of Houston, this state of Texas, this country of the United States was not built by those who waited and rested and wished to look behind them. This country was conquered by those who moved forward&mdash;and so will space.</p>
+
+      <p>William Bradford, speaking in 1630 of the founding of the Plymouth Bay Colony, said that all great and honorable actions are accompanied with great difficulties, and both must be enterprised and overcome with answerable courage.</p>
+
+      <p>If this capsule history of our progress teaches us anything, it is that man, in his quest for knowledge and progress, is determined and cannot be deterred. The exploration of space will go ahead, whether we join in it or not, and it is one of the great adventures of all time, and no nation which expects to be the leader of other nations can expect to stay behind in this race for space.</p>
+
+      <p>Those who came before us made certain that this country rode the first waves of the industrial revolution, the first waves of modern invention, and the first wave of nuclear power, and this generation does not intend to founder in the backwash of the coming age of space. We mean to be a part of it&mdash;we mean to lead it. For the eyes of the world now look into space, to the moon and to the planets beyond, and we have vowed that we shall not see it governed by a hostile flag of conquest, but by a banner of freedom and peace. We have vowed that we shall not see space filled with weapons of mass destruction, but with instruments of knowledge and understanding.</p>
+
+      <p>Yet the vows of this Nation can only be fulfilled if we in this Nation are first, and, therefore, we intend to be first. In short, our leadership in science and industry, our hopes for peace and security, our obligations to ourselves as well as others, all require us to make this effort, to solve these mysteries, to solve them for the good of all men, and to become the world&rsquo;s leading space-faring nation.</p>
+
+      <p>We set sail on this new sea because there is new knowledge to be gained, and new rights to be won, and they must be won and used for the progress of all people. For space science, like nuclear science and all technology, has no conscience of its own. Whether it will become a force for good or ill depends on man, and only if the United States occupies a position of pre-eminence can we help decide whether this new ocean will be a sea of peace or a new terrifying theater of war. I do not say that we should or will go unprotected against the hostile misuse of space any more than we go unprotected against the hostile use of land or sea, but I do say that space can be explored and mastered without feeding the fires of war, without repeating the mistakes that man has made in extending his writ around this globe of ours.</p>
+
+      <p>There is no strife, no prejudice, no national conflict in outer space as yet. Its hazards are hostile to us all. Its conquest deserves the best of all mankind, and its opportunity for peaceful cooperation may never come again. But why, some say, the moon? Why choose this as our goal? And they may well ask why climb the highest mountain? Why, 35 years ago, fly the Atlantic? Why does Rice play Texas?</p>
+
+      <blockquote class="pull-quote">
+        <p>We choose to go to the Moon. We choose to go to the Moon in this decade and do the other things, not because they are easy, but because they are hard, because that goal will serve to organize and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone, and one which we intend to win, and the others, too.</p>
+      </blockquote>
+
+      <p>It is for these reasons that I regard the decision last year to shift our efforts in space from low to high gear as among the most important decisions that will be made during my incumbency in the office of the Presidency.</p>
+
+      <p>In the last 24 hours we have seen facilities now being created for the greatest and most complex exploration in man&rsquo;s history. We have felt the ground shake and the air shattered by the testing of a Saturn C-1 booster rocket, many times as powerful as the Atlas which launched John Glenn, generating power equivalent to 10 thousand automobiles with their accelerators on the floor. We have seen the site where five F-1 rocket engines, each one as powerful as all eight engines of the Saturn combined, will be clustered together to make the advanced Saturn missile, assembled in a new building to be built at Cape Canaveral as tall as a 48 story structure, as wide as a city block, and as long as two lengths of this field.</p>
+
+      <p>Within these last 19 months at least 45 satellites have circled the earth. Some 40 of them were made in the United States of America and they were far more sophisticated and supplied far more knowledge to the people of the world than those of the Soviet Union.</p>
+
+      <p>The Mariner spacecraft now on its way to Venus is the most intricate instrument in the history of space science. The accuracy of that shot is comparable to firing a missile from Cape Canaveral and dropping it in this stadium between the 40-yard lines.</p>
+
+      <p>Transit satellites are helping our ships at sea to steer a safer course. Tiros satellites have given us unprecedented warnings of hurricanes and storms, and will do the same for forest fires and icebergs.</p>
+
+      <p>We have had our failures, but so have others, even if they do not admit them. And they may be less public.</p>
+
+      <p>To be sure, we are behind, and will be behind for some time in manned flight. But we do not intend to stay behind, and in this decade, we shall make up and move ahead.</p>
+
+      <p>The growth of our science and education will be enriched by new knowledge of our universe and environment, by new techniques of learning and mapping and observation, by new tools and computers for industry, medicine, the home as well as the school. Technical institutions, such as Rice, will reap the harvest of these gains.</p>
+
+      <p>And finally, the space effort itself, while still in its infancy, has already created a great number of new companies, and tens of thousands of new jobs. Space and related industries are generating new demands in investment and skilled personnel, and this city and this state, and this region, will share greatly in this growth. What was once the furthest outpost on the old frontier of the West will be the furthest outpost on the new frontier of science and space. Houston, your city of Houston, with its Manned Spacecraft Center, will become the heart of a large scientific and engineering community. During the next 5 years the National Aeronautics and Space Administration expects to double the number of scientists and engineers in this area, to increase its outlays for salaries and expenses to 60 million dollars a year; to invest some 200 million dollars in plant and laboratory facilities; and to direct or contract for new space efforts over 1 billion dollars from this center in this city.</p>
+
+      <blockquote class="pull-quote">
+        <p>To be sure, all this costs us all a good deal of money. This year&rsquo;s space budget is three times what it was in January 1961, and it is greater than the space budget of the previous eight years combined. That budget now stands at 5 billion 400 million dollars a year&mdash;a staggering sum, though somewhat less than we pay for cigarettes and cigars every year.</p>
+      </blockquote>
+
+      <p>Space expenditures will soon rise some more, from 40 cents per person per week to more than 50 cents a week for every man, woman and child in the United States, for we have given this program a high national priority&mdash;even though I realize that this is in some measure an act of faith and vision, for we do not now know what benefits await us.</p>
+
+      <blockquote class="pull-quote">
+        <p>But if I were to say, my fellow citizens, that we shall send to the moon, 240 thousand miles away from the control station in Houston, a giant rocket more than 300 feet tall, the length of this football field, made of new metal alloys, some of which have not yet been invented, capable of standing heat and stresses several times more than have ever been experienced, fitted together with a precision better than the finest watch, carrying all the equipment needed for propulsion, guidance, control, communications, food and survival, on an untried mission, to an unknown celestial body, and then return it safely to earth, re-entering the atmosphere at speeds of over 25 thousand miles per hour, causing heat about half that of the temperature of the sun&mdash;almost as hot as it is here today&mdash;and do all this, and do it right, and do it first before this decade is out&mdash;then we must be bold.</p>
+      </blockquote>
+
+      <p>I&rsquo;m the one who is doing all the work, so we just want you to stay cool for a minute.</p>
+
+      <p>However, I think we&rsquo;re going to do it, and I think that we must pay what needs to be paid. I don&rsquo;t think we ought to waste any money, but I think we ought to do the job. And this will be done in the decade of the Sixties. It may be done while some of you are still here at school at this college and university. It will be done during the terms of office of some of the people who sit here on this platform. But it will be done. And it will be done before the end of this decade.</p>
+
+      <p>And I am delighted that this university is playing a part in putting a man on the moon as part of a great national effort of the United States of America.</p>
+
+      <p>Many years ago the great British explorer George Mallory, who was to die on Mount Everest, was asked why did he want to climb it. He said, &ldquo;Because it is there.&rdquo;</p>
+
+      <blockquote class="pull-quote">
+        <p>Well, space is there, and we&rsquo;re going to climb it, and the moon and the planets are there, and new hopes for knowledge and peace are there. And, therefore, as we set sail we ask God&rsquo;s blessing on the most hazardous and dangerous and greatest adventure on which man has ever embarked.</p>
+      </blockquote>
+
+      <p>Thank you.</p>
+
+    </article>
+
+    <footer class="speech__footer">
+      <p>Source: <a href="https://en.wikisource.org/wiki/We_choose_to_go_to_the_moon" target="_blank" rel="noopener noreferrer">Wikisource</a> &mdash; <a href="https://www.jfklibrary.org/" target="_blank" rel="noopener noreferrer">JFK Presidential Library</a></p>
+      <p>This is a work of the United States federal government and is in the public domain under <a href="https://www.law.cornell.edu/uscode/text/17/105" target="_blank" rel="noopener noreferrer">17 U.S.C. &sect; 105</a>.</p>
+    </footer>
+
+    <a class="scroll-cue" href="#missions" aria-label="Scroll to missions timeline">
+      <svg class="scroll-cue__arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+  </div>
+</section>
+    <section id="missions" class="missions" aria-label="Missions Timeline — Humanity's Journey to the Moon">
+  <div class="missions__inner">
+    <header class="missions__header">
+      <p class="missions__label">Past Missions</p>
+      <h2 class="missions__title">Humanity's Journey to the Moon</h2>
+      <p class="missions__subtitle">Every crewed Apollo mission and major uncrewed lunar mission, in order.</p>
+    </header>
+    <div class="missions__timeline">
+
+      <div class="missions__decade" id="decade-1950s" role="separator" aria-label="1950s">
+        <span class="missions__decade-label">1950s</span>
+      </div>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1959-01-02">1959 Jan 2</time>
+          <a class="missions__name" href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1959-012A" target="_blank" rel="noopener noreferrer">Luna 1</a>
+          <span class="missions__country">USSR</span>
+          <span class="missions__status missions__status--failure" aria-label="Failure">&#10007; Failure</span>
+        </p>
+        <p class="missions__description">Missed the Moon by 6,000&nbsp;km &mdash; first spacecraft to escape Earth&rsquo;s gravity well.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1959-09-12">1959 Sep 12</time>
+          <a class="missions__name" href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1959-014A" target="_blank" rel="noopener noreferrer">Luna 2</a>
+          <span class="missions__country">USSR</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">First human-made object to reach the Moon &mdash; impacted east of Mare Serenitatis.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1959-10-04">1959 Oct 4</time>
+          <a class="missions__name" href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1959-008A" target="_blank" rel="noopener noreferrer">Luna 3</a>
+          <span class="missions__country">USSR</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">First photographs of the Moon&rsquo;s far side &mdash; revealed a surface unlike the near side.</p>
+      </article>
+
+      <!-- ═══════════════════ 1960s ═══════════════════ -->
+      <div class="missions__decade" id="decade-1960s" role="separator" aria-label="1960s">
+        <span class="missions__decade-label">1960s</span>
+      </div>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1964-07-28">1964 Jul 28</time>
+          <a class="missions__name" href="https://science.nasa.gov/mission/ranger-7/" target="_blank" rel="noopener noreferrer">Ranger 7</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">First US mission to return lunar images &mdash; transmitted 4,300 photos before impact.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1965-02-17">1965 Feb 17</time>
+          <a class="missions__name" href="https://science.nasa.gov/mission/ranger-8/" target="_blank" rel="noopener noreferrer">Ranger 8</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">Returned 7,100 photos of the Sea of Tranquility &mdash; future Apollo 11 landing area.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1965-03-21">1965 Mar 21</time>
+          <a class="missions__name" href="https://science.nasa.gov/mission/ranger-9/" target="_blank" rel="noopener noreferrer">Ranger 9</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">Final Ranger &mdash; 5,800 images broadcast live on US television.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1966-01-31">1966 Jan 31</time>
+          <a class="missions__name" href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1966-006A" target="_blank" rel="noopener noreferrer">Luna 9</a>
+          <span class="missions__country">USSR</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">First spacecraft to achieve a soft landing on the Moon.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1966-03-31">1966 Mar 31</time>
+          <a class="missions__name" href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1966-027A" target="_blank" rel="noopener noreferrer">Luna 10</a>
+          <span class="missions__country">USSR</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">First spacecraft to orbit the Moon.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1966-05-30">1966 May 30</time>
+          <a class="missions__name" href="https://science.nasa.gov/mission/surveyor-1/" target="_blank" rel="noopener noreferrer">Surveyor 1</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">First US soft landing &mdash; proved lunar soil could support an Apollo spacecraft.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1966-08-10">1966 Aug 10</time>
+          <a class="missions__name" href="https://science.nasa.gov/mission/lunar-orbiter-1/" target="_blank" rel="noopener noreferrer">Lunar Orbiter 1</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">First US lunar orbiter &mdash; began systematic mapping of potential Apollo landing sites.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1966-11-06">1966 Nov 6</time>
+          <a class="missions__name" href="https://science.nasa.gov/mission/lunar-orbiter-2/" target="_blank" rel="noopener noreferrer">Lunar Orbiter 2</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">Returned the famous &ldquo;Picture of the Century&rdquo; &mdash; a dramatic oblique view of Copernicus crater.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1967-04-17">1967 Apr 17</time>
+          <a class="missions__name" href="https://science.nasa.gov/mission/surveyor-3/" target="_blank" rel="noopener noreferrer">Surveyor 3</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">Soft lander later retrieved by Apollo 12 crew &mdash; only lunar artifact ever brought back to Earth.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1967-08-01">1967 Aug 1</time>
+          <a class="missions__name" href="https://science.nasa.gov/mission/lunar-orbiter-5/" target="_blank" rel="noopener noreferrer">Lunar Orbiter 5</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">Completed mapping 99% of the lunar surface &mdash; finished the pre-Apollo site survey.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1967-09-08">1967 Sep 8</time>
+          <a class="missions__name" href="https://science.nasa.gov/mission/surveyor-5/" target="_blank" rel="noopener noreferrer">Surveyor 5</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">First chemical analysis of lunar soil &mdash; confirmed safe conditions for crewed landings.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1968-01-07">1968 Jan 7</time>
+          <a class="missions__name" href="https://science.nasa.gov/mission/surveyor-7/" target="_blank" rel="noopener noreferrer">Surveyor 7</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">Last Surveyor &mdash; landed on the rim of Tycho crater, first in lunar highlands.</p>
+      </article>
+
+      <article class="missions__entry missions__entry--crewed">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1968-12-21">1968 Dec 21</time>
+          <a class="missions__name" href="https://www.nasa.gov/mission/apollo-8/" target="_blank" rel="noopener noreferrer">Apollo 8</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">First crew to leave Earth&rsquo;s gravity and orbit the Moon; captured the iconic Earthrise photograph.</p>
+        <p class="missions__crew">Frank Borman, James Lovell, William Anders</p>
+      </article>
+
+      <article class="missions__entry missions__entry--crewed">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1969-05-18">1969 May 18</time>
+          <a class="missions__name" href="https://www.nasa.gov/mission/apollo-10/" target="_blank" rel="noopener noreferrer">Apollo 10</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">Full dress rehearsal &mdash; descended to within 15&nbsp;km of the lunar surface without landing.</p>
+        <p class="missions__crew">Thomas Stafford, John Young, Eugene Cernan</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1969-07-13">1969 Jul 13</time>
+          <a class="missions__name" href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1969-058A" target="_blank" rel="noopener noreferrer">Luna 15</a>
+          <span class="missions__country">USSR</span>
+          <span class="missions__status missions__status--failure" aria-label="Failure">&#10007; Failure</span>
+        </p>
+        <p class="missions__description">USSR sample-return attempt crashed while Apollo 11 crew were on the surface.</p>
+      </article>
+
+      <article class="missions__entry missions__entry--spotlight" id="apollo-11">
+        <p class="missions__spotlight-label">The Promise Fulfilled</p>
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1969-07-16">1969 Jul 16</time>
+          <a class="missions__name" href="https://www.nasa.gov/mission/apollo-11/" target="_blank" rel="noopener noreferrer">Apollo 11</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">First humans to walk on the Moon &mdash; Neil Armstrong and Buzz Aldrin landed in the Sea of Tranquility on July 20, 1969, fulfilling President Kennedy&rsquo;s 1961 pledge.</p>
+        <p class="missions__crew">Neil Armstrong, Michael Collins, Buzz Aldrin</p>
+        <p class="missions__landing-site">Sea of Tranquility</p>
+        <blockquote class="missions__spotlight-quote">
+          <p>&ldquo;That&rsquo;s one small step for [a] man, one giant leap for mankind.&rdquo;</p>
+          <footer><cite>Neil Armstrong, July 20, 1969</cite></footer>
+        </blockquote>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1969-08-07">1969 Aug 7</time>
+          <a class="missions__name" href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1969-067A" target="_blank" rel="noopener noreferrer">Zond 7</a>
+          <span class="missions__country">USSR</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">Returned color photographs of Earth and Moon from lunar orbit.</p>
+      </article>
+
+      <article class="missions__entry missions__entry--crewed">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1969-11-14">1969 Nov 14</time>
+          <a class="missions__name" href="https://www.nasa.gov/mission/apollo-12/" target="_blank" rel="noopener noreferrer">Apollo 12</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">Precision landing beside Surveyor 3 &mdash; retrieved probe parts and deployed seismic network.</p>
+        <p class="missions__crew">Charles Conrad, Richard Gordon, Alan Bean</p>
+      </article>
+
+      <!-- ═══════════════════ 1970s ═══════════════════ -->
+      <div class="missions__decade" id="decade-1970s" role="separator" aria-label="1970s">
+        <span class="missions__decade-label">1970s</span>
+      </div>
+
+      <article class="missions__entry missions__entry--crewed missions__entry--aborted" id="apollo-13">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1970-04-11">1970 Apr 11</time>
+          <a class="missions__name" href="https://www.nasa.gov/mission/apollo-13/" target="_blank" rel="noopener noreferrer">Apollo 13</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--aborted" aria-label="Aborted">&#8855; Aborted</span>
+        </p>
+        <p class="missions__description">On April 13, 1970 &mdash; two days into the flight &mdash; an oxygen tank in the service module ruptured, destroying power and life support for the command module. Commander Lovell, Swigert, and Haise retreated to the lunar module <em>Aquarius</em>, using it as a lifeboat for four days. Mission Control improvised a CO&#8322; scrubber fix using only materials aboard. The crew swung around the Moon and returned safely on April 17.</p>
+        <p class="missions__description missions__description--note">NASA called it &ldquo;a successful failure.&rdquo;</p>
+        <p class="missions__crew">James Lovell, Jack Swigert, Fred Haise</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1970-09-12">1970 Sep 12</time>
+          <a class="missions__name" href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1970-072A" target="_blank" rel="noopener noreferrer">Luna 16</a>
+          <span class="missions__country">USSR</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">First robotic sample return &mdash; brought back 101&nbsp;g of lunar soil without a crew.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1970-11-10">1970 Nov 10</time>
+          <a class="missions__name" href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1970-095A" target="_blank" rel="noopener noreferrer">Luna 17 / Lunokhod 1</a>
+          <span class="missions__country">USSR</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">First wheeled vehicle on another world &mdash; operated for 10 months, traveled 10.5&nbsp;km.</p>
+      </article>
+
+      <article class="missions__entry missions__entry--crewed">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1971-01-31">1971 Jan 31</time>
+          <a class="missions__name" href="https://www.nasa.gov/mission/apollo-14/" target="_blank" rel="noopener noreferrer">Apollo 14</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">America&rsquo;s first astronaut returned to space; Shepard played golf on the Moon.</p>
+        <p class="missions__crew">Alan Shepard, Stuart Roosa, Edgar Mitchell</p>
+      </article>
+
+      <article class="missions__entry missions__entry--crewed">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1971-07-26">1971 Jul 26</time>
+          <a class="missions__name" href="https://www.nasa.gov/mission/apollo-15/" target="_blank" rel="noopener noreferrer">Apollo 15</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">First use of the lunar roving vehicle; drove 17 miles and collected 170&nbsp;lb of samples.</p>
+        <p class="missions__crew">David Scott, Alfred Worden, James Irwin</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1972-02-14">1972 Feb 14</time>
+          <a class="missions__name" href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1972-007A" target="_blank" rel="noopener noreferrer">Luna 20</a>
+          <span class="missions__country">USSR</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">Second robotic sample return &mdash; retrieved 30&nbsp;g from the highlands.</p>
+      </article>
+
+      <article class="missions__entry missions__entry--crewed">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1972-04-16">1972 Apr 16</time>
+          <a class="missions__name" href="https://www.nasa.gov/mission/apollo-16/" target="_blank" rel="noopener noreferrer">Apollo 16</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">First landing in the lunar highlands; drove 16 miles and returned 209&nbsp;lb of samples.</p>
+        <p class="missions__crew">John Young, Ken Mattingly, Charles Duke</p>
+      </article>
+
+      <article class="missions__entry missions__entry--crewed">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1972-12-07">1972 Dec 7</time>
+          <a class="missions__name" href="https://www.nasa.gov/mission/apollo-17/" target="_blank" rel="noopener noreferrer">Apollo 17</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">Final crewed lunar mission &mdash; Schmitt was the only trained geologist to walk on the Moon.</p>
+        <p class="missions__crew">Eugene Cernan, Ronald Evans, Harrison Schmitt</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1973-01-08">1973 Jan 8</time>
+          <a class="missions__name" href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1973-001A" target="_blank" rel="noopener noreferrer">Luna 21 / Lunokhod 2</a>
+          <span class="missions__country">USSR</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">Second lunar rover &mdash; traveled 37&nbsp;km in 4 months, a distance record for 40 years.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1976-08-09">1976 Aug 9</time>
+          <a class="missions__name" href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1976-081A" target="_blank" rel="noopener noreferrer">Luna 24</a>
+          <span class="missions__country">USSR</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">Final Soviet lunar mission &mdash; returned 170&nbsp;g of deep core samples; the program ends here.</p>
+      </article>
+
+      <div class="missions__decade" id="decade-1990s" role="separator" aria-label="1990s">
+        <span class="missions__decade-label">1990s</span>
+      </div>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1990-01-24">1990 Jan 24</time>
+          <a class="missions__name" href="https://www.isas.jaxa.jp/en/missions/spacecraft/past/hiten.html" target="_blank" rel="noopener noreferrer">Hiten</a>
+          <span class="missions__country">Japan</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">Japan&rsquo;s first lunar mission &mdash; proved small nations could reach the Moon.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1994-01-25">1994 Jan 25</time>
+          <a class="missions__name" href="https://science.nasa.gov/mission/clementine/" target="_blank" rel="noopener noreferrer">Clementine</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--partial" aria-label="Partial">&#9888; Partial</span>
+        </p>
+        <p class="missions__description">First comprehensive lunar surface mapping; data hinted at water ice in polar craters.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="1998-01-07">1998 Jan 7</time>
+          <a class="missions__name" href="https://science.nasa.gov/mission/lunar-prospector/" target="_blank" rel="noopener noreferrer">Lunar Prospector</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">Confirmed hydrogen deposits at the poles &mdash; strong evidence for water ice.</p>
+      </article>
+
+      <div class="missions__decade" id="decade-2000s" role="separator" aria-label="2000s">
+        <span class="missions__decade-label">2000s</span>
+      </div>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="2003-09-27">2003 Sep 27</time>
+          <a class="missions__name" href="https://www.esa.int/Science_Exploration/Space_Science/SMART-1" target="_blank" rel="noopener noreferrer">SMART-1</a>
+          <span class="missions__country">ESA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">Europe&rsquo;s first lunar mission &mdash; tested ion propulsion technology for future deep-space flights.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="2007-09-14">2007 Sep 14</time>
+          <a class="missions__name" href="https://www.kaguya.jaxa.jp/index_e.htm" target="_blank" rel="noopener noreferrer">Kaguya (SELENE)</a>
+          <span class="missions__country">Japan</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">Detailed gravity mapping and HD video from lunar orbit; intentionally impacted 2009.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="2007-10-24">2007 Oct 24</time>
+          <a class="missions__name" href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2007-051A" target="_blank" rel="noopener noreferrer">Chang&rsquo;e 1</a>
+          <span class="missions__country">China</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">China&rsquo;s first lunar mission &mdash; produced a complete 3D map of the lunar surface.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="2008-10-22">2008 Oct 22</time>
+          <a class="missions__name" href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2008-052A" target="_blank" rel="noopener noreferrer">Chandrayaan-1</a>
+          <span class="missions__country">India</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">India&rsquo;s first lunar mission; its M&#179; instrument confirmed water molecules across the Moon.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="2009-06-18">2009 Jun 18</time>
+          <a class="missions__name" href="https://science.nasa.gov/mission/lro/" target="_blank" rel="noopener noreferrer">LRO</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">Lunar Reconnaissance Orbiter &mdash; still operational; highest-resolution lunar surface maps.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="2009-10-09">2009 Oct 9</time>
+          <a class="missions__name" href="https://science.nasa.gov/mission/lcross/" target="_blank" rel="noopener noreferrer">LCROSS</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">Confirmed water ice in Cabeus crater at the lunar south pole &mdash; a landmark discovery.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="2010-10-01">2010 Oct 1</time>
+          <a class="missions__name" href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2010-050A" target="_blank" rel="noopener noreferrer">Chang&rsquo;e 2</a>
+          <span class="missions__country">China</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">High-resolution maps of future landing sites; continued on to asteroid flyby.</p>
+      </article>
+
+      <div class="missions__decade" id="decade-2010s" role="separator" aria-label="2010s">
+        <span class="missions__decade-label">2010s</span>
+      </div>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="2011-09-10">2011 Sep 10</time>
+          <a class="missions__name" href="https://science.nasa.gov/mission/grail/" target="_blank" rel="noopener noreferrer">GRAIL (Ebb &amp; Flow)</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">Twin spacecraft produced the most detailed gravity map of any solar system body.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="2013-12-01">2013 Dec 1</time>
+          <a class="missions__name" href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2013-070A" target="_blank" rel="noopener noreferrer">Chang&rsquo;e 3 / Yutu</a>
+          <span class="missions__country">China</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">First soft landing on the Moon in 37 years; first Chinese rover on the lunar surface.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="2019-01-03">2019 Jan 3</time>
+          <a class="missions__name" href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2018-103A" target="_blank" rel="noopener noreferrer">Chang&rsquo;e 4 / Yutu-2</a>
+          <span class="missions__country">China</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">First landing on the Moon&rsquo;s far side &mdash; still operating as of 2025.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="2019-07-22">2019 Jul 22</time>
+          <a class="missions__name" href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2019-042A" target="_blank" rel="noopener noreferrer">Chandrayaan-2</a>
+          <span class="missions__country">India</span>
+          <span class="missions__status missions__status--partial" aria-label="Partial">&#9888; Partial</span>
+        </p>
+        <p class="missions__description">Orbiter successful; lander Vikram crashed during descent.</p>
+      </article>
+
+      <div class="missions__decade" id="decade-2020s" role="separator" aria-label="2020s">
+        <span class="missions__decade-label">2020s</span>
+      </div>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="2020-11-23">2020 Nov 23</time>
+          <a class="missions__name" href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2020-087A" target="_blank" rel="noopener noreferrer">Chang&rsquo;e 5</a>
+          <span class="missions__country">China</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">First lunar sample return in 44 years &mdash; brought back 1.73&nbsp;kg of fresh basalt.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="2023-07-14">2023 Jul 14</time>
+          <a class="missions__name" href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2023-098A" target="_blank" rel="noopener noreferrer">Chandrayaan-3 / Pragyan</a>
+          <span class="missions__country">India</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">First successful landing near the lunar south pole &mdash; confirmed sulfur in polar soil.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="2023-08-11">2023 Aug 11</time>
+          <a class="missions__name" href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2023-118A" target="_blank" rel="noopener noreferrer">Luna 25</a>
+          <span class="missions__country">Russia</span>
+          <span class="missions__status missions__status--failure" aria-label="Failure">&#10007; Failure</span>
+        </p>
+        <p class="missions__description">Russia&rsquo;s first lunar mission in 47 years &mdash; crashed on approach to the south pole.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="2024-01-19">2024 Jan 19</time>
+          <a class="missions__name" href="https://www.isas.jaxa.jp/en/missions/spacecraft/past/slim.html" target="_blank" rel="noopener noreferrer">SLIM</a>
+          <span class="missions__country">Japan</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">First precision pinpoint landing on the Moon &mdash; touched down within 55&nbsp;m of target.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="2024-02-22">2024 Feb 22</time>
+          <a class="missions__name" href="https://en.wikipedia.org/wiki/IM-1_(spacecraft)" target="_blank" rel="noopener noreferrer">IM-1 (Odysseus)</a>
+          <span class="missions__country">USA</span>
+          <span class="missions__status missions__status--partial" aria-label="Partial">&#9888; Partial</span>
+        </p>
+        <p class="missions__description">First US soft landing since 1972 &mdash; tipped on its side but returned science data.</p>
+      </article>
+
+      <article class="missions__entry">
+        <p class="missions__entry-header">
+          <time class="missions__date" datetime="2024-05-03">2024 May 3</time>
+          <a class="missions__name" href="https://en.wikipedia.org/wiki/Chang%27e_6" target="_blank" rel="noopener noreferrer">Chang&rsquo;e 6</a>
+          <span class="missions__country">China</span>
+          <span class="missions__status missions__status--success" aria-label="Success">&#10003; Success</span>
+        </p>
+        <p class="missions__description">First-ever samples retrieved from the Moon&rsquo;s far side &mdash; returned 1.9&nbsp;kg of ancient basalt.</p>
+      </article>
+
+    </div>
+
+    <footer class="missions__footer">
+      <p>Sources: <a href="https://history.nasa.gov/" target="_blank" rel="noopener noreferrer">NASA History Office</a> &mdash; <a href="https://nssdc.gsfc.nasa.gov/planetary/lunar/" target="_blank" rel="noopener noreferrer">NASA NSSDC Lunar Archive</a> &mdash; <a href="https://www.planetary.org/" target="_blank" rel="noopener noreferrer">The Planetary Society</a></p>
+      <p>Mission data is presented for historical and educational purposes. Dates reflect launch dates unless otherwise noted.</p>
+    </footer>
+
+    <a class="scroll-cue" href="#future" aria-label="Scroll to future missions">
+      <svg class="scroll-cue__arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+  </div>
+</section>
+    <section id="future" class="future" aria-label="Future Moon Missions">
+  <div class="future__inner">
+    <header class="future__header">
+      <p class="future__label">WHAT COMES NEXT</p>
+      <h2 class="future__title">The Next Chapter</h2>
+      <p class="future__subtitle">Humanity&rsquo;s return to the Moon &mdash; and the missions still to come</p>
+    </header>
+
+    <!-- Artemis spotlight card -->
+    <div class="future__spotlight">
+      <p class="future__spotlight-label">THE RETURN</p>
+      <p class="future__name">
+        <a href="https://www.nasa.gov/humans-in-space/artemis/" target="_blank" rel="noopener noreferrer">Artemis</a>
+      </p>
+      <figure class="future__spotlight-photo">
+        <img
+          class="future__spotlight-img"
+          src="img/artemis2-earthset.jpg"
+          alt="Earth setting behind the lunar limb, photographed by the Artemis II crew on April 6, 2026 — the modern counterpart to Apollo 8's Earthrise"
+          width="5568"
+          height="3712"
+          loading="lazy"
+        >
+        <figcaption class="future__spotlight-caption">
+          Earth sets behind the lunar limb &mdash; Artemis&nbsp;II crew, April&nbsp;6, 2026
+          <span class="future__spotlight-credit">NASA / JSC</span>
+        </figcaption>
+      </figure>
+      <p class="future__prose-intro">NASA&rsquo;s Artemis program is humanity&rsquo;s return to the Moon &mdash; the first crewed lunar landing since Apollo&nbsp;17 in 1972. Artemis will land the first woman and first person of color on the lunar surface. It is not a visit. It is the beginning of a sustained presence.</p>
+    </div>
+
+    <!-- Program Group: Artemis (NASA) -->
+    <div class="future__program">
+      <h3 class="future__program-header">
+        <a href="https://www.nasa.gov/humans-in-space/artemis/" target="_blank" rel="noopener noreferrer">Artemis Program</a>
+      </h3>
+      <p class="future__program-label">NASA &middot; USA</p>
+
+      <article class="future__entry future__entry--completed">
+        <p class="future__entry-header">
+          <time class="future__date" datetime="2026-04-01">Apr 1, 2026</time>
+          <a class="future__name" href="https://www.nasa.gov/mission/artemis-ii/" target="_blank" rel="noopener noreferrer">Artemis&nbsp;II</a>
+          <span class="future__country">USA / Canada</span>
+          <span class="future__status future__status--success">&#10003; Success</span>
+        </p>
+        <p class="future__description">First crewed lunar flyby since Apollo&nbsp;17 &mdash; crew flew 252,756&nbsp;mi from Earth (a new human distance record) on a 10-day free-return trajectory. Splashed down April&nbsp;10, 2026 off the coast of San Diego.</p>
+        <p class="future__crew">Reid Wiseman, Victor Glover, Christina Koch, Jeremy Hansen</p>
+      </article>
+
+      <article class="future__entry">
+        <p class="future__entry-header">
+          <span class="future__date">Mid-2027</span>
+          <a class="future__name" href="https://www.nasa.gov/mission/artemis-iii/" target="_blank" rel="noopener noreferrer">Artemis&nbsp;III</a>
+          <span class="future__country">USA</span>
+          <span class="future__status">&cir; Planned</span>
+        </p>
+        <p class="future__description">Redesigned (Feb&nbsp;2026) to skip the Moon landing &mdash; rendezvous and docking tests with SpaceX Starship HLS and Blue Origin Blue Moon in Earth orbit; validates the Axiom AxEMU spacesuit before the first surface mission.</p>
+      </article>
+
+      <article class="future__entry">
+        <p class="future__entry-header">
+          <span class="future__date">Early 2028</span>
+          <a class="future__name" href="https://www.nasa.gov/mission/artemis-iv/" target="_blank" rel="noopener noreferrer">Artemis&nbsp;IV</a>
+          <span class="future__country">USA</span>
+          <span class="future__status">&cir; Planned</span>
+        </p>
+        <p class="future__description">First crewed lunar landing since Apollo&nbsp;17 (1972) &mdash; ~30-day surface mission targeting the lunar south pole; first crewed landing of the Artemis era.</p>
+      </article>
+
+      <article class="future__entry">
+        <p class="future__entry-header">
+          <span class="future__date">Late 2028</span>
+          <a class="future__name" href="https://www.nasa.gov/humans-in-space/artemis/" target="_blank" rel="noopener noreferrer">Artemis&nbsp;V</a>
+          <span class="future__country">USA</span>
+          <span class="future__status">&cir; Planned</span>
+        </p>
+        <p class="future__description">Second crewed lunar landing; continued surface operations and sustained presence at the south pole.</p>
+      </article>
+    </div>
+
+    <!-- Program Group: Chang'e (CNSA) -->
+    <div class="future__program">
+      <h3 class="future__program-header">
+        <a href="https://www.cnsa.gov.cn/english/" target="_blank" rel="noopener noreferrer">Chang&rsquo;e Program</a>
+      </h3>
+      <p class="future__program-label">CNSA &middot; CHINA</p>
+
+      <article class="future__entry">
+        <p class="future__entry-header">
+          <span class="future__date">~2026</span>
+          <a class="future__name" href="https://en.wikipedia.org/wiki/Chang%27e_7" target="_blank" rel="noopener noreferrer">Chang&rsquo;e&nbsp;7</a>
+          <span class="future__country">China</span>
+          <span class="future__status">&cir; Planned</span>
+        </p>
+        <p class="future__description">South pole resource survey &mdash; orbiter, lander, rover, and mini-hopping probe search for water ice in permanently shadowed craters.</p>
+      </article>
+
+      <article class="future__entry">
+        <p class="future__entry-header">
+          <span class="future__date">~2028</span>
+          <a class="future__name" href="https://en.wikipedia.org/wiki/Chang%27e_8" target="_blank" rel="noopener noreferrer">Chang&rsquo;e&nbsp;8</a>
+          <span class="future__country">China</span>
+          <span class="future__status">&cir; Planned</span>
+        </p>
+        <p class="future__description">South pole follow-up &mdash; in-situ resource utilization tests, including 3D-printing with lunar regolith; ILRS precursor.</p>
+      </article>
+    </div>
+
+    <!-- Program Group: Chandrayaan (ISRO) -->
+    <div class="future__program">
+      <h3 class="future__program-header">
+        <a href="https://www.isro.gov.in/" target="_blank" rel="noopener noreferrer">Chandrayaan Program</a>
+      </h3>
+      <p class="future__program-label">ISRO &middot; INDIA</p>
+
+      <article class="future__entry">
+        <p class="future__entry-header">
+          <span class="future__date">~2027</span>
+          <a class="future__name" href="https://www.isro.gov.in/ISRO_JAXA_CH5_Technical_Interface_Meet.html" target="_blank" rel="noopener noreferrer">Chandrayaan-5 / LUPEX</a>
+          <span class="future__country">India / Japan</span>
+          <span class="future__status">&cir; Planned</span>
+        </p>
+        <p class="future__description">Joint ISRO-JAXA mission &mdash; India lander plus Japan&rsquo;s 350&nbsp;kg rover drill for water ice at the south pole.</p>
+      </article>
+
+      <article class="future__entry">
+        <p class="future__entry-header">
+          <span class="future__date">~2028</span>
+          <a class="future__name" href="https://www.isro.gov.in/ISRO_Nationalsciencemeet_ch4.html" target="_blank" rel="noopener noreferrer">Chandrayaan-4</a>
+          <span class="future__country">India</span>
+          <span class="future__status">&cir; Planned</span>
+        </p>
+        <p class="future__description">Lunar sample return &mdash; India&rsquo;s first attempt to retrieve and return Moon rocks to Earth, targeting the south pole.</p>
+      </article>
+    </div>
+
+    <!-- Program Group: Commercial Missions -->
+    <div class="future__program">
+      <h3 class="future__program-header">
+        <a href="https://www.nasa.gov/commercial-lunar-payload-services/" target="_blank" rel="noopener noreferrer">Commercial Missions</a>
+      </h3>
+      <p class="future__program-label">VARIOUS</p>
+
+      <article class="future__entry">
+        <p class="future__entry-header">
+          <span class="future__date">~2026</span>
+          <a class="future__name" href="https://fireflyspace.com/missions/blue-ghost-mission-2/" target="_blank" rel="noopener noreferrer">Blue Ghost Mission&nbsp;2</a>
+          <span class="future__country">USA (Firefly)</span>
+          <span class="future__status">&cir; Planned</span>
+        </p>
+        <p class="future__description">Delivers LuSEE-Night radio telescope to the Moon&rsquo;s far side; first commercial far-side landing.</p>
+      </article>
+
+      <article class="future__entry">
+        <p class="future__entry-header">
+          <span class="future__date">~2026</span>
+          <a class="future__name" href="https://www.astrobotic.com/griffin-1-mission-update/" target="_blank" rel="noopener noreferrer">Griffin Mission&nbsp;1</a>
+          <span class="future__country">USA (Astrobotic)</span>
+          <span class="future__status">&cir; Planned</span>
+        </p>
+        <p class="future__description">Large lander targets the lunar south pole (Nobile Crater region); carries Astrolab&rsquo;s FLEX rover.</p>
+      </article>
+
+      <article class="future__entry">
+        <p class="future__entry-header">
+          <span class="future__date">~2026</span>
+          <a class="future__name" href="https://www.intuitivemachines.com/im-3-lunar-mission" target="_blank" rel="noopener noreferrer">IM-3</a>
+          <span class="future__country">USA (Intuitive Machines)</span>
+          <span class="future__status">&cir; Planned</span>
+        </p>
+        <p class="future__description">Third Nova-C lander targets the Reiner Gamma magnetic anomaly swirl to study lunar mini-magnetospheres.</p>
+      </article>
+    </div>
+
+  </div>
+</section>
   </main>
 
-  <footer id="foot"><!-- Phase 5 --></footer>
+  <footer id="foot" class="foot">
+  <div class="foot__inner">
+    <div class="foot__closing-quote">
+      <blockquote class="foot__quote">
+        <p>&ldquo;The exploration of space will go ahead, whether we join in it or not.&rdquo;</p>
+        <cite>&mdash; John F. Kennedy, September 12, 1962</cite>
+      </blockquote>
+    </div>
 
-  <script src="js/nav.js?v=20260403e" defer></script>
-  <script src="js/missions.js?v=20260403e" defer></script>
+    <nav class="foot__attribution" aria-label="Source attribution">
+      <a href="https://www.jfklibrary.org/learn/about-jfk/historic-speeches/address-at-rice-university-on-the-nations-space-effort" target="_blank" rel="noopener noreferrer">JFK Presidential Library</a>
+      <a href="https://history.nasa.gov/" target="_blank" rel="noopener noreferrer">NASA History Office</a>
+      <a href="https://www.youtube.com/watch?v=QXqlziZV63k" target="_blank" rel="noopener noreferrer">Rice University Address (YouTube)</a>
+    </nav>
+
+    <div class="foot__meta">
+      <p>Speech text is a work of the United States federal government and is in the public domain under 17&nbsp;U.S.C.&nbsp;&sect;&nbsp;105.</p>
+      <p>&copy; 2026 &mdash; Site design and editorial curation</p>
+    </div>
+
+    <a href="#home" class="foot__back-to-top">Back to top &uarr;</a>
+  </div>
+</footer>
+
+  <!-- Video lightbox modal -->
+  <div class="video-modal" id="video-modal" role="dialog" aria-modal="true" aria-label="JFK Moon Speech — Rice University, September 12, 1962">
+    <div class="video-modal__backdrop" aria-hidden="true"></div>
+    <div class="video-modal__container">
+      <button class="video-modal__close" aria-label="Close video">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="video-modal__frame"></div>
+    </div>
+  </div>
+
+  <script src="js/nav.js?v=20260403f" defer></script>
+  <script src="js/video.js?v=20260422" defer></script>
+  <script src="js/missions.js?v=20260403f" defer></script>
 </body>
 </html>
