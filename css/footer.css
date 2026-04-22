@@ -85,6 +85,19 @@
   margin-top: var(--space-2);
 }
 
+.foot__meta a {
+  color:                 var(--color-text-muted);
+  text-decoration:       underline;
+  text-underline-offset: 0.2em;
+  transition:            color var(--transition-fast);
+}
+
+.foot__meta a:hover,
+.foot__meta a:focus-visible {
+  color:   var(--color-accent);
+  outline: none;
+}
+
 /* ------------------------------------------------------------------
    Back to top link
    ------------------------------------------------------------------ */
