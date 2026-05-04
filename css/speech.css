@@ -108,8 +108,8 @@
   border-left: 3px solid var(--color-accent);
   margin:      var(--space-12) 0;
   padding:     var(--space-4) var(--space-8);
-  /* Subtle silver tint — 4% opacity of accent colour, color-mix is baseline 2024+ */
   background:  color-mix(in srgb, var(--color-accent) 4%, transparent);
+  box-shadow:  -4px 0 24px rgba(192, 200, 208, 0.12);
 }
 
 .pull-quote p {
@@ -119,6 +119,31 @@
   color:         var(--color-text);
   line-height:   var(--leading-snug);
   margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------------
+   Scroll reveal
+   ------------------------------------------------------------------ */
+.js-reveal .pull-quote {
+  opacity:    0;
+  transform:  translateY(10px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.js-reveal .pull-quote.is-revealed {
+  opacity:   1;
+  transform: none;
+}
+
+.js-reveal .speech__header {
+  opacity:    0;
+  transform:  translateY(10px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.js-reveal .speech__header.is-revealed {
+  opacity:   1;
+  transform: none;
 }
 
 /* ------------------------------------------------------------------

@@ -231,28 +231,24 @@ a.missions__name:focus-visible {
 }
 
 /* ------------------------------------------------------------------
-   Apollo 11 spotlight card — breakout, silver border, tinted bg
+   Apollo 11 spotlight card — breakout, gold border, tinted bg
+   This is THE moment — it earns the gold treatment.
    ------------------------------------------------------------------ */
 .missions__entry--spotlight {
-  /* Override default left-border with full silver border */
   border-left:  none;
-  border:       2px solid var(--color-accent);
-
-  /* Break out of reading column */
+  border:       2px solid var(--color-warning);
   margin-left:  calc(-1 * var(--space-8));
   margin-right: calc(-1 * var(--space-8));
   padding:      var(--space-8);
-
-  /* Subtle silver tint background */
-  background: color-mix(in srgb, var(--color-accent) 6%, transparent);
-
+  background:   color-mix(in srgb, var(--color-warning) 5%, transparent);
+  box-shadow:   var(--glow-gold);
   margin-bottom: var(--space-12);
 }
 
 .missions__spotlight-label {
   font-family:    var(--font-body);
   font-size:      var(--text-sm);
-  color:          var(--color-accent);
+  color:          var(--color-warning);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin-bottom:  var(--space-2);
@@ -268,7 +264,7 @@ a.missions__name:focus-visible {
 }
 
 .missions__spotlight-quote {
-  border-left:  3px solid var(--color-accent);
+  border-left:  3px solid var(--color-warning);
   padding-left: var(--space-6);
   margin-top:   var(--space-6);
 }
@@ -301,6 +297,49 @@ a.missions__name:focus-visible {
 
 .missions__entry--aborted .missions__description {
   line-height: var(--leading-loose);
+}
+
+/* ------------------------------------------------------------------
+   Entry hover — subtle silver tint reveals presence
+   ------------------------------------------------------------------ */
+.missions__entry:not(.missions__entry--spotlight) {
+  transition: background var(--transition-fast), border-left-color var(--transition-fast);
+}
+
+.missions__entry:not(.missions__entry--spotlight):hover {
+  background: color-mix(in srgb, var(--color-accent) 4%, transparent);
+}
+
+/* ------------------------------------------------------------------
+   Scroll reveal — only active when .js-reveal is on <html>
+   Reduced-motion users never get .js-reveal, see everything immediately.
+   ------------------------------------------------------------------ */
+.js-reveal .missions__entry,
+.js-reveal .missions__decade {
+  opacity:    0;
+  transform:  translateX(-14px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.js-reveal .missions__entry--spotlight {
+  transform: translateY(14px);
+}
+
+.js-reveal .missions__entry.is-revealed,
+.js-reveal .missions__decade.is-revealed {
+  opacity:   1;
+  transform: none;
+}
+
+.js-reveal .missions__header {
+  opacity:    0;
+  transform:  translateY(10px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.js-reveal .missions__header.is-revealed {
+  opacity:   1;
+  transform: none;
 }
 
 /* ------------------------------------------------------------------

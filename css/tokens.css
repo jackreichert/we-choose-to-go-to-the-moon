@@ -65,4 +65,9 @@
   /* --- Transitions --- */
   --transition-fast:   150ms ease;
   --transition-normal: 300ms ease;
+  --transition-slow:   700ms ease;
+
+  /* --- Glow effects --- */
+  --glow-silver: 0 0 24px rgba(192, 200, 208, 0.18), 0 0 80px rgba(192, 200, 208, 0.06);
+  --glow-gold:   0 0 24px rgba(192, 146, 74, 0.22),  0 0 80px rgba(192, 146, 74, 0.07);
 }

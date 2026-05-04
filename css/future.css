@@ -81,6 +81,7 @@
   margin-right:  calc(-1 * var(--space-8));
   padding:       var(--space-8);
   background:    color-mix(in srgb, var(--color-accent) 6%, transparent);
+  box-shadow:    var(--glow-silver);
   margin-bottom: var(--space-12);
 }
 
@@ -293,6 +294,65 @@ a.future__name:focus-visible {
 }
 
 /* ------------------------------------------------------------------
+   Scroll reveal
+   ------------------------------------------------------------------ */
+.js-reveal .future__entry {
+  opacity:    0;
+  transform:  translateX(-14px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.js-reveal .future__entry.is-revealed {
+  opacity:   1;
+  transform: none;
+}
+
+.js-reveal .future__header {
+  opacity:    0;
+  transform:  translateY(10px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.js-reveal .future__header.is-revealed {
+  opacity:   1;
+  transform: none;
+}
+
+/* ------------------------------------------------------------------
+   Additional photos grid — 2-up row of supplementary crew photos
+   ------------------------------------------------------------------ */
+.future__photo-grid {
+  display:               grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:                   var(--space-4);
+  margin:                var(--space-6) calc(-1 * var(--space-8)) 0;
+}
+
+.future__photo-item {
+  margin: 0;
+}
+
+.future__photo-img {
+  display:         block;
+  width:           100%;
+  height:          auto;
+  max-height:      40vh;
+  object-fit:      cover;
+  object-position: center;
+}
+
+.future__photo-caption {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     baseline;
+  padding:         var(--space-2) var(--space-4);
+  font-family:     var(--font-body);
+  font-size:       var(--text-xs);
+  color:           var(--color-text-muted);
+  font-style:      italic;
+}
+
+/* ------------------------------------------------------------------
    Responsive — mobile (<=768px)
    ------------------------------------------------------------------ */
 @media (max-width: 768px) {
@@ -316,6 +376,11 @@ a.future__name:focus-visible {
 
   .future__spotlight-caption {
     padding: var(--space-2) var(--space-4);
+  }
+
+  .future__photo-grid {
+    grid-template-columns: 1fr;
+    margin: var(--space-4) calc(-1 * var(--space-4)) 0;
   }
 
   .future__spotlight .future__name {
