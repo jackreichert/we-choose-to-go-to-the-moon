@@ -306,8 +306,10 @@ a.missions__name:focus-visible {
   transition: background var(--transition-fast), border-left-color var(--transition-fast);
 }
 
-.missions__entry:not(.missions__entry--spotlight):hover {
-  background: color-mix(in srgb, var(--color-accent) 4%, transparent);
+@media (hover: hover) and (pointer: fine) {
+  .missions__entry:not(.missions__entry--spotlight):hover {
+    background: color-mix(in srgb, var(--color-accent) 4%, transparent);
+  }
 }
 
 /* ------------------------------------------------------------------
@@ -318,7 +320,8 @@ a.missions__name:focus-visible {
 .js-reveal .missions__decade {
   opacity:    0;
   transform:  translateX(-14px);
-  transition: opacity var(--transition-slow), transform var(--transition-slow);
+  transition: opacity 400ms cubic-bezier(0.23, 1, 0.32, 1),
+              transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .js-reveal .missions__entry--spotlight {
@@ -334,7 +337,8 @@ a.missions__name:focus-visible {
 .js-reveal .missions__header {
   opacity:    0;
   transform:  translateY(10px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 600ms cubic-bezier(0.23, 1, 0.32, 1),
+              transform 600ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .js-reveal .missions__header.is-revealed {

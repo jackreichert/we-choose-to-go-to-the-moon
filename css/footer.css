@@ -108,13 +108,22 @@
   font-size:       var(--text-sm);
   color:           var(--color-text-muted);
   text-decoration: none;
-  transition:      color var(--transition-fast);
+  transition:      color var(--transition-fast), transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.foot__back-to-top:hover,
 .foot__back-to-top:focus-visible {
   color:   var(--color-accent);
   outline: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .foot__back-to-top:hover {
+    color: var(--color-accent);
+  }
+}
+
+.foot__back-to-top:active {
+  transform: scale(0.95);
 }
 
 /* ------------------------------------------------------------------

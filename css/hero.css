@@ -101,12 +101,12 @@
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
   margin: 0 auto var(--space-4);
-  animation: ruleGrow 0.6s ease-out 1.1s both;
+  animation: ruleGrow 0.6s cubic-bezier(0.23, 1, 0.32, 1) 1.1s both;
 }
 
 @keyframes ruleGrow {
-  from { width: 0; opacity: 0; }
-  to   { width: 48px; opacity: 1; }
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -130,9 +130,19 @@
   text-decoration: none;
 }
 
-.hero__scroll-cue:hover,
 .hero__scroll-cue:focus-visible {
   color: var(--color-accent);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero__scroll-cue:hover {
+    color: var(--color-accent);
+  }
+}
+
+.hero__scroll-cue:active {
+  animation-play-state: paused;
+  transform: translateX(-50%) scale(0.9);
 }
 
 .hero__scroll-label {

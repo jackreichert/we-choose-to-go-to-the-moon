@@ -233,10 +233,20 @@ body::before {
   animation:       scrollCueBounce 2.4s ease-in-out infinite;
 }
 
-.scroll-cue:hover,
 .scroll-cue:focus-visible {
   color:   var(--color-accent);
   outline: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .scroll-cue:hover {
+    color: var(--color-accent);
+  }
+}
+
+.scroll-cue:active {
+  animation-play-state: paused;
+  transform:            translateY(6px) scale(0.9);
 }
 
 .scroll-cue__arrow {
