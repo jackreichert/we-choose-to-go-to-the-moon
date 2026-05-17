@@ -31,6 +31,9 @@
   <!-- Body/reading fonts: display=swap is fine — not render-blocking for hero -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 
+  <!-- Preload LCP image — hero background is a CSS rule, invisible to the preload scanner without this -->
+  <link rel="preload" as="image" href="img/earthrise.jpg" fetchpriority="high">
+
   <!-- Styles (tokens first) -->
   <link rel="stylesheet" href="css/tokens.css?v=20260504b">
   <link rel="stylesheet" href="css/reset.css?v=20260403f">
@@ -42,6 +45,8 @@
   <link rel="stylesheet" href="css/footer.css?v=20260422">
 </head>
 <body>
+
+  <a href="#hero" class="sr-only sr-only--focusable">Skip to main content</a>
 
   <header id="home">
     <nav class="nav" aria-label="Main navigation">
@@ -64,6 +69,7 @@
     <section id="hero" class="hero" aria-label="Hero - JFK Moon speech dedication">
       <div class="hero__overlay" aria-hidden="true"></div>
       <div class="hero__content">
+        <h1 class="sr-only">We Choose to Go to the Moon</h1>
         <blockquote class="hero__quote" cite="https://www.jfklibrary.org/asset-viewer/archives/JFKPOF/040/JFKPOF-040-001">
           <p class="hero__quote-text">We choose to go to the Moon in this decade and do the other things, not because they are easy, but because they are hard.</p>
           <footer class="hero__attribution">
@@ -95,8 +101,8 @@
           <div class="video__overlay" aria-hidden="true"></div>
           <button class="video__play-btn" aria-hidden="true" tabindex="-1">
             <svg width="68" height="48" viewBox="0 0 68 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="68" height="48" rx="10" fill="rgba(0,0,0,0.75)"/>
-              <path d="M27 15l22 9-22 9V15z" fill="white"/>
+              <rect width="68" height="48" rx="10"/>
+              <path d="M27 15l22 9-22 9V15z"/>
             </svg>
           </button>
         </div>

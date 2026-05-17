@@ -82,6 +82,19 @@
     drawStatic();
   } else {
     drawAnimated();
+
+    /* Pause the rAF loop when the hero scrolls out of view — no point
+       animating an off-screen canvas. Resume if the user scrolls back. */
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          if (!raf) drawAnimated();
+        } else {
+          cancelAnimationFrame(raf);
+          raf = null;
+        }
+      }, { threshold: 0 }).observe(hero);
+    }
   }
 
   var resizeTimer;
