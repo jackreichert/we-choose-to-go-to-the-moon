@@ -6,6 +6,9 @@
   <meta name="description" content="A dedication to JFK's We Choose to Go to the Moon speech and humanity's journey to the Moon — past, present, and future.">
   <title>We Choose to Go to the Moon</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
   <!-- SEO & Social -->
   <link rel="canonical" href="https://wechoosetogotothemoon.com/">
   <meta property="og:type" content="website">
@@ -23,44 +26,49 @@
   <meta name="twitter:image" content="https://wechoosetogotothemoon.com/img/og-preview.jpg">
   <meta name="twitter:image:alt" content="Total solar eclipse viewed from the Artemis II Orion spacecraft — Moon eclipsing the Sun, with the Sun’s corona glowing around the lunar disk, April 6, 2026">
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts — Playfair Display (display), Lora (body), JetBrains Mono (labels/nav) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Playfair Display: display=block hides briefly instead of swapping — prevents hero quote jump -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=block" rel="stylesheet">
-  <!-- Body/reading fonts: display=swap is fine — not render-blocking for hero -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
-
-  <!-- Preload LCP image — hero background is a CSS rule, invisible to the preload scanner without this -->
-  <link rel="preload" as="image" href="img/earthrise.jpg" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 
   <!-- Styles (tokens first) -->
-  <link rel="stylesheet" href="css/tokens.css?v=20260504b">
-  <link rel="stylesheet" href="css/reset.css?v=20260403f">
-  <link rel="stylesheet" href="css/nav.css?v=20260504b">
-  <link rel="stylesheet" href="css/hero.css?v=20260504b">
-  <link rel="stylesheet" href="css/speech.css?v=20260504b">
-  <link rel="stylesheet" href="css/missions.css?v=20260504b">
-  <link rel="stylesheet" href="css/future.css?v=20260504b">
-  <link rel="stylesheet" href="css/footer.css?v=20260422">
+  <link rel="stylesheet" href="css/tokens.css?v=20260520">
+  <link rel="stylesheet" href="css/reset.css?v=20260520">
+  <link rel="stylesheet" href="css/nav.css?v=20260520">
+  <link rel="stylesheet" href="css/hero.css?v=20260520b">
+  <link rel="stylesheet" href="css/quote.css?v=20260520">
+  <link rel="stylesheet" href="css/speech.css?v=20260520">
+  <link rel="stylesheet" href="css/stats.css?v=20260520">
+  <link rel="stylesheet" href="css/missions.css?v=20260520">
+  <link rel="stylesheet" href="css/future.css?v=20260520">
+  <link rel="stylesheet" href="css/footer.css?v=20260520">
 </head>
 <body>
+
+  <div class="moon-wrap" id="moonWrap" aria-hidden="true">
+    <img
+      class="moon-img"
+      src="https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg"
+      alt=""
+      fetchpriority="high"
+    >
+  </div>
 
   <a href="#hero" class="sr-only sr-only--focusable">Skip to main content</a>
 
   <header id="home">
     <nav class="nav" aria-label="Main navigation">
-      <a href="#home" class="nav__logo" aria-label="Go to top">We Choose to Go to the Moon</a>
+      <a href="#home" class="nav__logo" aria-label="Go to top">Apollo &middot; Artemis</a>
       <button class="nav__hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
         <span class="nav__hamburger-bar"></span>
         <span class="nav__hamburger-bar"></span>
         <span class="nav__hamburger-bar"></span>
       </button>
       <ul class="nav__menu" id="nav-menu" role="list">
-        <li><a href="#video" class="nav__link">Video</a></li>
-        <li><a href="#speech" class="nav__link">Speech</a></li>
+        <li><a href="#quote" class="nav__link">The Speech</a></li>
+        <li><a href="#speech" class="nav__link">Full Text</a></li>
         <li><a href="#missions" class="nav__link">Missions</a></li>
-        <li><a href="#future" class="nav__link">Future</a></li>
+        <li><a href="#future" class="nav__link">What&rsquo;s Next</a></li>
       </ul>
     </nav>
   </header>
@@ -70,13 +78,19 @@
       <div class="hero__overlay" aria-hidden="true"></div>
       <div class="hero__content">
         <h1 class="sr-only">We Choose to Go to the Moon</h1>
+        <p class="hero__eyebrow" aria-hidden="true">September 12, 1962 &middot; Rice University</p>
         <blockquote class="hero__quote" cite="https://www.jfklibrary.org/asset-viewer/archives/JFKPOF/040/JFKPOF-040-001">
-          <p class="hero__quote-text">We choose to go to the Moon in this decade and do the other things, not because they are easy, but because they are hard.</p>
+          <p class="hero__quote-text">
+            <span class="hero__word">We choose to go to the Moon</span>
+            <span class="hero__word">in this decade and do the other things,</span>
+            <span class="hero__word">not because they are easy,</span>
+            <span class="hero__word">but because they are hard.</span>
+          </p>
           <footer class="hero__attribution">
             <cite>President John F. Kennedy &mdash; September 12, 1962</cite>
           </footer>
         </blockquote>
-        <a class="hero__scroll-cue" href="#video" aria-label="Scroll to video section">
+        <a class="hero__scroll-cue" href="#quote" aria-label="Scroll to quote section">
           <span class="hero__scroll-label">Scroll</span>
           <svg class="hero__scroll-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -84,6 +98,24 @@
         </a>
       </div>
     </section>
+
+    <section class="quote-section" id="quote">
+      <div class="section-inner">
+        <span class="section-label">The Speech &middot; September&nbsp;12, 1962</span>
+        <blockquote class="quote-text" aria-label="JFK Rice University speech excerpt">
+          <span class="phrase">&ldquo;We choose to go to the Moon</span>
+          <span class="phrase">in this decade</span>
+          <span class="phrase phrase--accent">and do the other things,</span>
+          <span class="phrase phrase--italic">not because they are easy,</span>
+          <span class="phrase phrase--accent">but because they are hard,</span>
+          <span class="phrase">because that goal will serve to organize</span>
+          <span class="phrase">and measure the best of our energies</span>
+          <span class="phrase phrase--italic">and skills.&rdquo;</span>
+        </blockquote>
+        <p class="quote-attr">&mdash; President John F. Kennedy</p>
+      </div>
+    </section>
+
     <section id="video" class="video" aria-label="JFK Moon Speech — Video Recording">
       <div class="video__inner">
         <h2 class="video__title">Watch the Speech</h2>
@@ -215,6 +247,37 @@
 
   </div>
 </section>
+
+    <!-- Apollo surface — image reveal after the speech -->
+    <section class="apollo-surface" aria-label="Apollo 11 landing site, Sea of Tranquility">
+      <p class="apollo-surface__caption">
+        <span class="apollo-surface__caption-text">The Sea of Tranquility</span>
+        <span class="apollo-surface__caption-meta">Apollo&nbsp;11 landing site &middot; July&nbsp;20, 1969</span>
+      </p>
+    </section>
+
+    <!-- Stats band — Apollo program by the numbers -->
+    <section class="stats" aria-label="Apollo program by the numbers">
+      <div class="stats__grid">
+        <div class="stats__item">
+          <div class="stats__number">6<span class="stats__unit">&times;</span></div>
+          <div class="stats__label">Crewed lunar<br>landings</div>
+        </div>
+        <div class="stats__item">
+          <div class="stats__number">12</div>
+          <div class="stats__label">Humans who walked<br>the Moon</div>
+        </div>
+        <div class="stats__item">
+          <div class="stats__number">382<span class="stats__unit">kg</span></div>
+          <div class="stats__label">Lunar samples<br>returned to Earth</div>
+        </div>
+        <div class="stats__item">
+          <div class="stats__number">1969<span class="stats__unit">&ndash;72</span></div>
+          <div class="stats__label">Apollo landing<br>program span</div>
+        </div>
+      </div>
+    </section>
+
     <section id="missions" class="missions" aria-label="Missions Timeline — Humanity's Journey to the Moon">
   <div class="missions__inner">
     <header class="missions__header">
@@ -795,6 +858,8 @@
 
   </div>
 </section>
+
+
     <section id="future" class="future" aria-label="Future Moon Missions">
   <div class="future__inner">
     <header class="future__header">
@@ -1043,8 +1108,9 @@
     </div>
   </div>
 
-  <script src="js/stars.js?v=20260504b" defer></script>
-  <script src="js/reveal.js?v=20260504b" defer></script>
+  <script src="js/stars.js?v=20260520" defer></script>
+  <script src="js/parallax.js?v=20260520" defer></script>
+  <script src="js/reveal.js?v=20260520" defer></script>
   <script src="js/nav.js?v=20260403f" defer></script>
   <script src="js/video.js?v=20260422" defer></script>
   <script src="js/missions.js?v=20260403f" defer></script>

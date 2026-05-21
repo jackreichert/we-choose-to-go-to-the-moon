@@ -1,0 +1,154 @@
+
+/* ============================================================
+   APOLLO SURFACE — Image reveal after the speech text
+   ============================================================ */
+
+.apollo-surface {
+  background-color:      var(--color-bg);
+  background-image:      url('../img/apollo11-surface.jpg');
+  background-attachment: fixed;
+  background-size:       cover;
+  background-position:   center 25%;
+  background-repeat:     no-repeat;
+  height:                clamp(400px, 60vh, 680px);
+  border-top:            1px solid var(--color-border-dim);
+  display:               flex;
+  align-items:           flex-end;
+  position:              relative;
+}
+
+@media (hover: none) {
+  .apollo-surface { background-attachment: scroll; }
+}
+
+.apollo-surface::after {
+  content:        '';
+  position:       absolute;
+  inset:          50% 0 0 0;
+  background:     linear-gradient(to top, color-mix(in srgb, var(--color-bg) 85%, transparent), transparent);
+  pointer-events: none;
+}
+
+.apollo-surface__caption {
+  position:        relative;
+  z-index:         1;
+  width:           100%;
+  max-width:       var(--max-width-content);
+  margin:          0 auto;
+  padding:         var(--space-3) var(--space-8);
+  display:         flex;
+  justify-content: space-between;
+  align-items:     baseline;
+  gap:             var(--space-8);
+}
+
+.apollo-surface__caption-text {
+  font-family: var(--font-display);
+  font-size:   clamp(0.95rem, 1.8vw, 1.3rem);
+  font-style:  italic;
+  color:       var(--color-fg);
+}
+
+.apollo-surface__caption-meta {
+  font-family:    var(--font-mono);
+  font-size:      0.625rem;
+  letter-spacing: var(--track-meta);
+  text-transform: uppercase;
+  color:          var(--color-caption);
+  white-space:    nowrap;
+}
+
+@media (max-width: 768px) {
+  .apollo-surface { height: clamp(280px, 45vh, 420px); }
+  .apollo-surface__caption {
+    flex-direction: column;
+    gap:            var(--space-1);
+    padding:        var(--space-3) var(--space-6);
+  }
+  .apollo-surface__caption-meta { white-space: normal; }
+}
+
+/* ============================================================
+   STATS BAND — Apollo program at a glance
+   Four key numbers bridging the Speech and Missions sections.
+   ============================================================ */
+
+.stats {
+  background:    var(--color-bg);
+  border-top:    1px solid var(--color-accent-dim);
+  border-bottom: 1px solid var(--color-accent-dim);
+}
+
+.stats__grid {
+  max-width: var(--max-width-content);
+  margin:    0 auto;
+  padding:   var(--space-16) var(--space-8);
+  display:   grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:       var(--space-8);
+}
+
+.stats__item {
+  border-top:  1px solid var(--color-accent-dim);
+  padding-top: var(--space-6);
+}
+
+.stats__number {
+  font-family:          var(--font-heading);
+  font-size:            clamp(2rem, 3.5vw, 3.25rem);
+  font-weight:          var(--weight-bold);
+  line-height:          1;
+  color:                var(--color-text);
+  letter-spacing:       -0.03em;
+  font-variant-numeric: tabular-nums;
+  margin-bottom:        var(--space-3);
+}
+
+.stats__unit {
+  font-size:      0.52em;
+  color:          var(--color-warning);
+  letter-spacing: 0.01em;
+}
+
+.stats__label {
+  font-family:    var(--font-body);
+  font-size:      var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color:          var(--color-text-muted);
+  line-height:    1.65;
+}
+
+/* ---- Scroll reveal ---- */
+
+.js-reveal .stats__item {
+  opacity:    0;
+  transform:  translateY(16px);
+  transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.js-reveal .stats__item.is-revealed {
+  opacity:   1;
+  transform: none;
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 768px) {
+  .stats__grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding:               var(--space-12) var(--space-6);
+  }
+}
+
+@media (max-width: 480px) {
+  .stats__grid {
+    grid-template-columns: 1fr;
+    gap:                   var(--space-6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .stats__item { opacity: 1; transform: none; transition: none; }
+}

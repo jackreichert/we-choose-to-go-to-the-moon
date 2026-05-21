@@ -3,34 +3,30 @@
    Styles for #future: planned lunar missions from Artemis
    through international and commercial programs.
    Dashed left border signals "not yet happened."
-   All values via var(--token). No hardcoded magic numbers.
    ============================================================ */
 
-/* ------------------------------------------------------------------
-   Section wrapper — mirrors missions.css
-   ------------------------------------------------------------------ */
 .future {
   background-color:      var(--color-bg);
-  background-image:      linear-gradient(color-mix(in srgb, var(--color-bg) 84%, transparent), color-mix(in srgb, var(--color-bg) 84%, transparent)),
+  background-image:      linear-gradient(
+                           to bottom,
+                           color-mix(in srgb, var(--color-bg) 72%, transparent) 0%,
+                           color-mix(in srgb, var(--color-bg) 55%, transparent) 50%,
+                           transparent 88%
+                         ),
                          url('../img/artemis2-earthset.jpg');
   background-attachment: fixed;
   background-size:       cover;
   background-position:   center 40%;
   background-repeat:     no-repeat;
-  padding:               var(--space-24) var(--space-4);
+  padding:               var(--space-24) var(--space-4) clamp(var(--space-16), 18vw, 20rem);
   scroll-margin-top:     var(--nav-height);
-  border-top:            1px solid var(--color-accent-dim);
+  border-top:            1px solid var(--color-border-dim);
 }
 
 @media (hover: none) {
-  .future {
-    background-attachment: scroll;
-  }
+  .future { background-attachment: scroll; }
 }
 
-/* ------------------------------------------------------------------
-   Reading-width column
-   ------------------------------------------------------------------ */
 .future__inner {
   max-width: var(--max-width-text);
   margin:    0 auto;
@@ -38,43 +34,45 @@
 }
 
 /* ------------------------------------------------------------------
-   Section header — centered
+   Section header
    ------------------------------------------------------------------ */
+
 .future__header {
   text-align:     center;
   margin-bottom:  var(--space-16);
   padding-bottom: var(--space-8);
-  border-bottom:  1px solid var(--color-accent-dim);
+  border-bottom:  1px solid var(--color-border-dim);
 }
 
 .future__label {
-  font-family:    var(--font-body);
-  font-size:      var(--text-sm);
+  font-family:    var(--font-mono);
+  font-size:      var(--text-xs);
   color:          var(--color-accent);
-  letter-spacing: 0.15em;
+  letter-spacing: var(--track-label);
   text-transform: uppercase;
   margin-bottom:  var(--space-4);
 }
 
 .future__title {
-  font-family:   var(--font-heading);
+  font-family:   var(--font-display);
   font-size:     var(--text-2xl);
   font-weight:   var(--weight-bold);
-  color:         var(--color-text);
+  color:         var(--color-fg);
   line-height:   var(--leading-tight);
   margin-bottom: var(--space-4);
 }
 
 .future__subtitle {
-  font-family: var(--font-body);
-  font-size:   var(--text-sm);
-  color:       var(--color-text-muted);
+  font-family:    var(--font-mono);
+  font-size:      var(--text-xs);
+  letter-spacing: var(--track-meta);
+  color:          var(--color-muted);
 }
 
 /* ------------------------------------------------------------------
-   Artemis spotlight card — breakout, silver border, tinted bg
-   Mirrors .missions__entry--spotlight from missions.css
+   Artemis spotlight card
    ------------------------------------------------------------------ */
+
 .future__spotlight {
   border:        2px solid var(--color-accent);
   margin-left:   calc(-1 * var(--space-8));
@@ -86,94 +84,106 @@
 }
 
 .future__spotlight-label {
-  font-family:    var(--font-body);
-  font-size:      var(--text-sm);
+  font-family:    var(--font-mono);
+  font-size:      var(--text-xs);
   color:          var(--color-accent);
-  letter-spacing: 0.2em;
+  letter-spacing: var(--track-label);
   text-transform: uppercase;
   margin-bottom:  var(--space-2);
 }
 
 .future__spotlight .future__name {
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
   font-size:   var(--text-2xl);
   font-weight: var(--weight-bold);
-  color:       var(--color-text);
+  color:       var(--color-fg);
   line-height: var(--leading-tight);
 }
 
 .future__spotlight .future__name a {
-  color:                 var(--color-text);
+  color:                 var(--color-fg);
   text-decoration:       underline;
   text-underline-offset: 0.15em;
-  text-decoration-color: var(--color-accent-dim);
+  text-decoration-color: var(--color-border-dim);
   transition:            text-decoration-color var(--transition-fast),
                          color var(--transition-fast);
 }
 
-.future__spotlight .future__name a:hover,
+.future__spotlight .future__name a:hover {
+  color:                 var(--color-accent);
+  text-decoration-color: var(--color-accent);
+}
+
 .future__spotlight .future__name a:focus-visible {
   color:                 var(--color-accent);
   text-decoration-color: var(--color-accent);
-  outline:               none;
+  outline:               2px solid var(--color-accent);
+  outline-offset:        4px;
 }
 
 .future__prose-intro {
-  font-family:   var(--font-body);
-  font-size:     var(--text-sm);
-  color:         var(--color-text);
-  line-height:   var(--leading-normal);
-  margin-top:    var(--space-4);
+  font-family: var(--font-body);
+  font-size:   var(--text-sm);
+  color:       var(--color-fg);
+  line-height: var(--leading-normal);
+  margin-top:  var(--space-4);
 }
 
 /* ------------------------------------------------------------------
    Program group headers
    ------------------------------------------------------------------ */
+
+.future__program {
+  margin-top: var(--space-12);
+}
+
 .future__program-header {
-  font-family:    var(--font-heading);
+  font-family:    var(--font-display);
   font-size:      var(--text-md);
   font-weight:    var(--weight-bold);
-  color:          var(--color-text);
-  margin-top:     var(--space-12);
-  margin-bottom:  var(--space-4);
+  color:          var(--color-fg);
+  margin-bottom:  var(--space-1);
   padding-bottom: var(--space-2);
-  border-bottom:  1px solid var(--color-accent-dim);
+  border-bottom:  1px solid var(--color-border-dim);
 }
 
 .future__program-header a {
-  color:           var(--color-text);
+  color:           var(--color-fg);
   text-decoration: none;
   transition:      color var(--transition-fast);
 }
 
-.future__program-header a:hover,
+.future__program-header a:hover { color: var(--color-accent); }
+
 .future__program-header a:focus-visible {
-  color:   var(--color-accent);
-  outline: none;
+  color:          var(--color-accent);
+  outline:        2px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
 .future__program-label {
-  font-family:    var(--font-body);
+  font-family:    var(--font-mono);
   font-size:      var(--text-xs);
-  color:          var(--color-text-muted);
-  letter-spacing: 0.15em;
+  color:          var(--color-muted);
+  letter-spacing: var(--track-label);
   text-transform: uppercase;
   margin-bottom:  var(--space-6);
 }
 
 /* ------------------------------------------------------------------
-   Future timeline entry — dashed left border (not solid)
-   Key visual difference from Phase 4 past entries
+   Future timeline entry — dashed left border
    ------------------------------------------------------------------ */
+
 .future__entry {
-  border-left:   2px dashed var(--color-accent-dim);
+  border-left:   2px dashed var(--color-border-dim);
   padding-left:  var(--space-6);
   margin-bottom: var(--space-6);
 }
 
-/* ------------------------------------------------------------------
-   Entry header — date, name, country, status on one line
-   ------------------------------------------------------------------ */
+.future__entry--completed {
+  border-left-style: solid;
+}
+
 .future__entry-header {
   display:       flex;
   flex-wrap:     wrap;
@@ -183,23 +193,23 @@
 }
 
 .future__date {
-  font-family: var(--font-body);
-  font-size:   var(--text-sm);
-  color:       var(--color-text-muted);
+  font-family:    var(--font-mono);
+  font-size:      var(--text-xs);
+  letter-spacing: var(--track-meta);
+  color:          var(--color-muted);
 }
 
 .future__name {
-  font-family:           var(--font-heading);
-  font-size:             var(--text-md);
-  font-weight:           var(--weight-bold);
-  color:                 var(--color-text);
-  text-decoration:       none;
+  font-family: var(--font-display);
+  font-size:   var(--text-md);
+  font-weight: var(--weight-bold);
+  color:       var(--color-fg);
 }
 
 a.future__name {
   text-decoration:       underline;
   text-underline-offset: 0.15em;
-  text-decoration-color: var(--color-accent-dim);
+  text-decoration-color: var(--color-border-dim);
   transition:            text-decoration-color var(--transition-fast),
                          color var(--transition-fast);
 }
@@ -212,58 +222,43 @@ a.future__name:focus-visible {
 }
 
 .future__country {
-  font-family:    var(--font-body);
-  font-size:      var(--text-xs);
-  color:          var(--color-text-muted);
-  letter-spacing: 0.1em;
+  font-family:    var(--font-mono);
+  font-size:      0.625rem;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
+  color:          var(--color-muted);
 }
 
 .future__status {
-  font-family:    var(--font-body);
-  font-size:      var(--text-xs);
-  color:          var(--color-text-muted);
-  letter-spacing: 0.05em;
+  font-family:    var(--font-mono);
+  font-size:      0.625rem;
+  letter-spacing: 0.18em;
+  color:          var(--color-muted);
 }
 
-/* ------------------------------------------------------------------
-   Status modifiers
-   ------------------------------------------------------------------ */
-.future__status--success {
-  color: var(--color-accent);
-}
+.future__status--success { color: var(--color-success); }
 
-/* Completed entries swap dashed border for solid */
-.future__entry--completed {
-  border-left-style: solid;
-}
-
-/* ------------------------------------------------------------------
-   Crew line
-   ------------------------------------------------------------------ */
-.future__crew {
-  font-family: var(--font-body);
-  font-size:   var(--text-xs);
-  color:       var(--color-text-muted);
-  font-style:  italic;
-}
-
-/* ------------------------------------------------------------------
-   Entry description
-   ------------------------------------------------------------------ */
 .future__description {
   font-family:   var(--font-body);
   font-size:     var(--text-sm);
-  color:         var(--color-text);
+  color:         var(--color-fg);
   line-height:   var(--leading-normal);
   margin-bottom: var(--space-1);
 }
 
+.future__crew {
+  font-family:    var(--font-mono);
+  font-size:      var(--text-xs);
+  letter-spacing: var(--track-meta);
+  color:          var(--color-muted);
+}
+
 /* ------------------------------------------------------------------
-   Artemis spotlight photo — full-bleed within the card
+   Artemis spotlight photo
    ------------------------------------------------------------------ */
+
 .future__spotlight-photo {
-  margin:  var(--space-6) calc(-1 * var(--space-8));
+  margin: var(--space-6) calc(-1 * var(--space-8));
 }
 
 .future__spotlight-img {
@@ -276,53 +271,25 @@ a.future__name:focus-visible {
 }
 
 .future__spotlight-caption {
-  display:        flex;
+  display:         flex;
   justify-content: space-between;
-  align-items:    baseline;
-  padding:        var(--space-2) var(--space-8);
-  font-family:    var(--font-body);
-  font-size:      var(--text-xs);
-  color:          var(--color-text-muted);
-  font-style:     italic;
+  align-items:     baseline;
+  padding:         var(--space-2) var(--space-8);
+  font-family:     var(--font-mono);
+  font-size:       0.625rem;
+  letter-spacing:  var(--track-meta);
+  color:           var(--color-muted);
 }
 
 .future__spotlight-credit {
-  font-style:     normal;
-  letter-spacing: 0.08em;
-  flex-shrink:    0;
-  margin-left:    var(--space-4);
+  flex-shrink:  0;
+  margin-left:  var(--space-4);
 }
 
 /* ------------------------------------------------------------------
-   Scroll reveal
+   Additional photo grid
    ------------------------------------------------------------------ */
-.js-reveal .future__entry {
-  opacity:    0;
-  transform:  translateX(-14px);
-  transition: opacity 400ms cubic-bezier(0.23, 1, 0.32, 1),
-              transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
-}
 
-.js-reveal .future__entry.is-revealed {
-  opacity:   1;
-  transform: none;
-}
-
-.js-reveal .future__header {
-  opacity:    0;
-  transform:  translateY(10px);
-  transition: opacity 600ms cubic-bezier(0.23, 1, 0.32, 1),
-              transform 600ms cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.js-reveal .future__header.is-revealed {
-  opacity:   1;
-  transform: none;
-}
-
-/* ------------------------------------------------------------------
-   Additional photos grid — 2-up row of supplementary crew photos
-   ------------------------------------------------------------------ */
 .future__photo-grid {
   display:               grid;
   grid-template-columns: repeat(2, 1fr);
@@ -330,9 +297,7 @@ a.future__name:focus-visible {
   margin:                var(--space-6) calc(-1 * var(--space-8)) 0;
 }
 
-.future__photo-item {
-  margin: 0;
-}
+.future__photo-item { margin: 0; }
 
 .future__photo-img {
   display:         block;
@@ -348,23 +313,47 @@ a.future__name:focus-visible {
   justify-content: space-between;
   align-items:     baseline;
   padding:         var(--space-2) var(--space-4);
-  font-family:     var(--font-body);
-  font-size:       var(--text-xs);
-  color:           var(--color-text-muted);
-  font-style:      italic;
+  font-family:     var(--font-mono);
+  font-size:       0.625rem;
+  letter-spacing:  var(--track-meta);
+  color:           var(--color-muted);
 }
 
 /* ------------------------------------------------------------------
-   Responsive — mobile (<=768px)
+   Scroll reveal
    ------------------------------------------------------------------ */
-@media (max-width: 768px) {
-  .future {
-    padding: var(--space-16) var(--space-2);
-  }
 
-  .future__title {
-    font-size: var(--text-md);
-  }
+.js-reveal .future__entry {
+  opacity:    0;
+  transform:  translateX(-14px);
+  transition: opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.js-reveal .future__entry.is-revealed { opacity: 1; transform: none; }
+
+.js-reveal .future__header {
+  opacity:    0;
+  transform:  translateY(10px);
+  transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.js-reveal .future__header.is-revealed { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .future__entry,
+  .js-reveal .future__header { opacity: 1; transform: none; transition: none; }
+}
+
+/* ------------------------------------------------------------------
+   Responsive
+   ------------------------------------------------------------------ */
+
+@media (max-width: 768px) {
+  .future { padding: var(--space-16) var(--space-2); }
+
+  .future__title { font-size: var(--text-md); }
 
   .future__spotlight {
     margin-left:  0;
@@ -372,32 +361,16 @@ a.future__name:focus-visible {
     padding:      var(--space-4);
   }
 
-  .future__spotlight-photo {
-    margin: var(--space-4) calc(-1 * var(--space-4));
-  }
+  .future__spotlight-photo { margin: var(--space-4) calc(-1 * var(--space-4)); }
 
-  .future__spotlight-caption {
-    padding: var(--space-2) var(--space-4);
-  }
+  .future__spotlight-caption { padding: var(--space-2) var(--space-4); }
 
   .future__photo-grid {
     grid-template-columns: 1fr;
     margin: var(--space-4) calc(-1 * var(--space-4)) 0;
   }
 
-  .future__spotlight .future__name {
-    font-size: var(--text-md);
-  }
+  .future__spotlight .future__name { font-size: var(--text-md); }
 
-  .future__entry {
-    padding-left: var(--space-4);
-  }
-
-  .future__entry-header {
-    gap: var(--space-1);
-  }
-
-  .future__name {
-    font-size: var(--text-base);
-  }
+  .future__entry { padding-left: var(--space-4); }
 }
