@@ -13,7 +13,7 @@
                            color-mix(in srgb, var(--color-bg) 55%, transparent) 50%,
                            transparent 88%
                          ),
-                         url('../img/artemis2-earthset.jpg');
+                         url('../img/earthrise.jpg');
   background-attachment: fixed;
   background-size:       cover;
   background-position:   center 40%;
@@ -78,9 +78,10 @@
   margin-left:   calc(-1 * var(--space-8));
   margin-right:  calc(-1 * var(--space-8));
   padding:       var(--space-8);
-  background:    color-mix(in srgb, var(--color-accent) 6%, transparent);
+  background:    color-mix(in srgb, var(--color-accent) 7%, var(--color-bg));
   box-shadow:    var(--glow-silver);
   margin-bottom: var(--space-12);
+  overflow:      hidden;
 }
 
 .future__spotlight-label {
@@ -292,7 +293,7 @@ a.future__name:focus-visible {
 
 .future__photo-grid {
   display:               grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap:                   var(--space-4);
   margin:                var(--space-6) calc(-1 * var(--space-8)) 0;
 }
@@ -306,6 +307,23 @@ a.future__name:focus-visible {
   max-height:      40vh;
   object-fit:      cover;
   object-position: center;
+}
+
+.future__gallery-trigger {
+  cursor: zoom-in;
+  transition: transform var(--transition-normal), filter var(--transition-normal);
+}
+
+.future__gallery-trigger:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .future__gallery-trigger:hover {
+    filter: brightness(1.06);
+    transform: scale(1.01);
+  }
 }
 
 .future__photo-caption {
@@ -366,11 +384,151 @@ a.future__name:focus-visible {
   .future__spotlight-caption { padding: var(--space-2) var(--space-4); }
 
   .future__photo-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     margin: var(--space-4) calc(-1 * var(--space-4)) 0;
+  }
+
+  .future__photo-caption {
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  .future__spotlight-credit {
+    margin-left: 0;
   }
 
   .future__spotlight .future__name { font-size: var(--text-md); }
 
   .future__entry { padding-left: var(--space-4); }
+}
+
+@media (max-width: 560px) {
+  .future__photo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   ARTEMIS GALLERY MODAL
+   ============================================================ */
+
+.gallery-modal {
+  position:        fixed;
+  inset:           0;
+  z-index:         1100;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  padding:         var(--space-8);
+  visibility:      hidden;
+  opacity:         0;
+  pointer-events:  none;
+  transition:      opacity var(--transition-normal),
+                   visibility var(--transition-normal);
+}
+
+.gallery-modal.is-open {
+  visibility:     visible;
+  opacity:        1;
+  pointer-events: auto;
+}
+
+.gallery-modal__backdrop {
+  position:                absolute;
+  inset:                   0;
+  background:              color-mix(in srgb, var(--color-bg) 94%, transparent);
+  backdrop-filter:         blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.gallery-modal__container {
+  position:   relative;
+  z-index:    1;
+  width:      min(94vw, 1200px);
+  display:    grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap:        var(--space-4);
+}
+
+.gallery-modal__figure {
+  margin:      0;
+  border:      1px solid var(--color-border-dim);
+  background:  color-mix(in srgb, var(--color-bg) 88%, transparent);
+  box-shadow:  var(--glow-silver);
+}
+
+.gallery-modal__image {
+  display:        block;
+  width:          100%;
+  max-height:     min(74vh, 900px);
+  object-fit:     contain;
+  background:     var(--color-bg);
+}
+
+.gallery-modal__caption {
+  font-family:    var(--font-mono);
+  font-size:      0.625rem;
+  letter-spacing: var(--track-meta);
+  color:          var(--color-muted);
+  padding:        var(--space-3) var(--space-4);
+}
+
+.gallery-modal__close,
+.gallery-modal__nav {
+  border:           1px solid var(--color-border-dim);
+  background:       color-mix(in srgb, var(--color-bg) 85%, transparent);
+  color:            var(--color-fg);
+  width:            2.5rem;
+  height:           2.5rem;
+  display:          inline-flex;
+  align-items:      center;
+  justify-content:  center;
+  cursor:           pointer;
+  transition:       color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.gallery-modal__close {
+  position: absolute;
+  top:      calc(-1 * var(--space-8));
+  right:    0;
+}
+
+.gallery-modal__close:hover,
+.gallery-modal__nav:hover,
+.gallery-modal__close:focus-visible,
+.gallery-modal__nav:focus-visible {
+  color:        var(--color-accent);
+  border-color: var(--color-accent);
+  outline:      none;
+}
+
+@media (max-width: 768px) {
+  .gallery-modal {
+    padding: var(--space-4);
+  }
+
+  .gallery-modal__container {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .gallery-modal__close {
+    top: 0;
+    right: 0;
+  }
+
+  .gallery-modal__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+
+  .gallery-modal__nav--prev { left: var(--space-2); }
+  .gallery-modal__nav--next { right: var(--space-2); }
+
+  .gallery-modal__image {
+    max-height: 68vh;
+  }
 }

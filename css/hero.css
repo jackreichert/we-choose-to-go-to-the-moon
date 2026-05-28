@@ -13,18 +13,9 @@
   overflow: hidden;
 }
 
-/* Overlay — fades bottom of hero into page background (no photo behind, just blends with stars) */
+/* Overlay — removed; void background handles the section transition naturally */
 .hero__overlay {
-  position: absolute;
-  inset:    0;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    transparent 60%,
-    color-mix(in srgb, var(--color-bg) 80%, transparent) 85%,
-    var(--color-bg) 100%
-  );
-  z-index: 0;
+  display: none;
 }
 
 /* Content sits above overlay and stars canvas */

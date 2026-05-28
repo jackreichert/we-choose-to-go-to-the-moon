@@ -40,7 +40,7 @@
   <link rel="stylesheet" href="css/speech.css?v=20260520">
   <link rel="stylesheet" href="css/stats.css?v=20260520">
   <link rel="stylesheet" href="css/missions.css?v=20260520">
-  <link rel="stylesheet" href="css/future.css?v=20260520">
+  <link rel="stylesheet" href="css/future.css?v=20260528a">
   <link rel="stylesheet" href="css/footer.css?v=20260520">
 </head>
 <body>
@@ -48,7 +48,7 @@
   <div class="moon-wrap" id="moonWrap" aria-hidden="true">
     <img
       class="moon-img"
-      src="https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg"
+      src="img/fullmoon2010.jpg"
       alt=""
       fetchpriority="high"
     >
@@ -118,13 +118,14 @@
 
     <section id="video" class="video" aria-label="JFK Moon Speech — Video Recording">
       <div class="video__inner">
+        <p class="video__eyebrow">Audio / Video Archive</p>
         <h2 class="video__title">Watch the Speech</h2>
-        <p class="video__caption">President Kennedy delivers his address at Rice University, Houston, Texas — September 12, 1962</p>
+        <p class="video__caption">President Kennedy delivers his address at Rice University, Houston, Texas &mdash; September&nbsp;12, 1962</p>
         <div class="video__facade" data-ytid="QXqlziZV63k" role="button" tabindex="0"
              aria-label="Play: JFK We Choose to Go to the Moon speech (opens in lightbox)">
           <img
             class="video__thumbnail"
-            src="https://i.ytimg.com/vi/QXqlziZV63k/maxresdefault.jpg"
+            src="img/jfk-speech-maxresdefault.jpg"
             alt="JFK delivering the We Choose to Go to the Moon speech at Rice University, 1962"
             width="1280"
             height="720"
@@ -132,13 +133,21 @@
           >
           <div class="video__overlay" aria-hidden="true"></div>
           <button class="video__play-btn" aria-hidden="true" tabindex="-1">
-            <svg width="68" height="48" viewBox="0 0 68 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="68" height="48" rx="10"/>
-              <path d="M27 15l22 9-22 9V15z"/>
+            <svg class="video__play-icon" width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="36" cy="36" r="34.25" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M30 23l20 13-20 13V23z" fill="currentColor"/>
             </svg>
+            <span class="video__play-label">Play recording</span>
           </button>
+          <div class="video__filmstrip" aria-hidden="true">
+            <span class="video__filmstrip-item">Duration&nbsp;17:47</span>
+            <span class="video__filmstrip-sep">&middot;</span>
+            <span class="video__filmstrip-item">Rice University &middot; Houston, TX</span>
+            <span class="video__filmstrip-sep">&middot;</span>
+            <span class="video__filmstrip-item">September&nbsp;12,&nbsp;1962</span>
+          </div>
         </div>
-        <p class="video__pd">Video via YouTube. Speech is a public domain work of the United States federal government.</p>
+        <p class="video__pd">Video via YouTube &mdash; Speech is a public domain work of the United States federal government.</p>
       </div>
       <a class="scroll-cue" href="#speech" aria-label="Scroll to speech section">
         <svg class="scroll-cue__arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -877,6 +886,7 @@
       <figure class="future__spotlight-photo">
         <img
           class="future__spotlight-img"
+          data-gallery="artemis-return"
           src="img/artemis2-earthset.jpg"
           alt="Earth setting behind the lunar limb, photographed by the Artemis II crew on April 6, 2026 — the modern counterpart to Apollo 8's Earthrise"
           width="5568"
@@ -890,10 +900,11 @@
       </figure>
       <p class="future__prose-intro">NASA&rsquo;s Artemis program is humanity&rsquo;s return to the Moon &mdash; the first crewed lunar landing since Apollo&nbsp;17 in 1972. Artemis will land the first woman and first person of color on the lunar surface. It is not a visit. It is the beginning of a sustained presence.</p>
 
-      <div class="future__photo-grid" role="group" aria-label="Additional Artemis II crew photographs">
+      <div class="future__photo-grid" role="group" aria-label="Artemis II crew photograph gallery">
         <figure class="future__photo-item">
           <img
             class="future__photo-img"
+            data-gallery="artemis-return"
             src="img/artemis2-eclipse.jpg"
             alt="Total solar eclipse viewed from inside the Orion spacecraft: the Moon fully obscures the Sun, its glowing corona visible around the dark lunar disk, with Venus as a bright point of light at upper left — April 6, 2026"
             width="1920"
@@ -908,6 +919,7 @@
         <figure class="future__photo-item">
           <img
             class="future__photo-img"
+            data-gallery="artemis-return"
             src="img/artemis2-earthrise.jpg"
             alt="Earthrise photographed from the Artemis II Orion spacecraft — Earth rising above the cratered lunar horizon against the black of space, echoing the iconic Apollo 8 Earthrise of 1968 — April 6, 2026"
             width="1920"
@@ -916,6 +928,51 @@
           >
           <figcaption class="future__photo-caption">
             Earthrise &mdash; echoing Apollo&nbsp;8&rsquo;s iconic 1968 photograph
+            <span class="future__spotlight-credit">NASA / JSC</span>
+          </figcaption>
+        </figure>
+        <figure class="future__photo-item">
+          <img
+            class="future__photo-img"
+            data-gallery="artemis-return"
+            src="img/artemis2-eclipse-full.jpg"
+            alt="Artemis II eclipse view with the Moon fully obscuring the Sun, a bright halo around the lunar disk, and stars visible in deep space — April 6, 2026"
+            width="1920"
+            height="1280"
+            loading="lazy"
+          >
+          <figcaption class="future__photo-caption">
+            Full-eclipse frame with prolonged totality from Orion
+            <span class="future__spotlight-credit">NASA / JSC</span>
+          </figcaption>
+        </figure>
+        <figure class="future__photo-item">
+          <img
+            class="future__photo-img"
+            data-gallery="artemis-return"
+            src="img/artemis2-eclipse-partial.jpg"
+            alt="Close-up Artemis II eclipse frame showing the lunar disk, halo glow, and Venus near the edge of the field of view — April 6, 2026"
+            width="1920"
+            height="1280"
+            loading="lazy"
+          >
+          <figcaption class="future__photo-caption">
+            Partial-frame eclipse close-up, with Venus at left
+            <span class="future__spotlight-credit">NASA / JSC</span>
+          </figcaption>
+        </figure>
+        <figure class="future__photo-item">
+          <img
+            class="future__photo-img"
+            data-gallery="artemis-return"
+            src="img/artemis2-distant-earth.jpg"
+            alt="A small waning crescent Earth seen from deep space during Artemis II, faint blue tones and cloud structure visible against black space — April 6, 2026"
+            width="1920"
+            height="1280"
+            loading="lazy"
+          >
+          <figcaption class="future__photo-caption">
+            Distant waning crescent Earth from deep space
             <span class="future__spotlight-credit">NASA / JSC</span>
           </figcaption>
         </figure>
@@ -1087,6 +1144,7 @@
     <div class="foot__meta">
       <p>Speech text is a work of the United States federal government and is in the public domain under 17&nbsp;U.S.C.&nbsp;&sect;&nbsp;105.</p>
       <p>Photographs &mdash; &ldquo;Earthrise&rdquo; hero image: NASA / Apollo&nbsp;8, William Anders, December&nbsp;24, 1968 (public domain). Artemis&nbsp;II images: NASA / JSC, April&nbsp;6, 2026 (public domain).</p>
+      <p>Additional media sources &mdash; Full Moon image: Gregory H. Revera via Wikimedia Commons (CC BY-SA 3.0). JFK speech thumbnail: YouTube preview frame from Rice University speech recording (QXqlziZV63k).</p>
       <p>This is an independent tribute. Not affiliated with NASA, the JFK Presidential Library, or the United States government.</p>
       <p>&copy; 2026 &mdash; Site design and editorial curation &mdash; <a href="https://github.com/jackreichert/we-choose-to-go-to-the-moon" target="_blank" rel="noopener noreferrer">View source on GitHub</a></p>
     </div>
@@ -1108,11 +1166,41 @@
     </div>
   </div>
 
+  <!-- Artemis gallery lightbox -->
+  <div class="gallery-modal" id="gallery-modal" role="dialog" aria-modal="true" aria-label="Artemis image gallery">
+    <div class="gallery-modal__backdrop" aria-hidden="true"></div>
+    <div class="gallery-modal__container" role="document">
+      <button class="gallery-modal__close" aria-label="Close gallery">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <button class="gallery-modal__nav gallery-modal__nav--prev" aria-label="Previous image">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <figure class="gallery-modal__figure">
+        <img class="gallery-modal__image" alt="">
+        <figcaption class="gallery-modal__caption"></figcaption>
+      </figure>
+
+      <button class="gallery-modal__nav gallery-modal__nav--next" aria-label="Next image">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
   <script src="js/stars.js?v=20260520" defer></script>
   <script src="js/parallax.js?v=20260520" defer></script>
   <script src="js/reveal.js?v=20260520" defer></script>
   <script src="js/nav.js?v=20260403f" defer></script>
   <script src="js/video.js?v=20260422" defer></script>
+  <script src="js/gallery.js?v=20260528a" defer></script>
   <script src="js/missions.js?v=20260403f" defer></script>
 </body>
 </html>

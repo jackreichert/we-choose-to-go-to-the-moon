@@ -10,6 +10,7 @@
   document.documentElement.classList.add('js-reveal');
 
   var TARGETS = [
+    '.stats__item',
     '.missions__entry',
     '.missions__decade',
     '.missions__header',

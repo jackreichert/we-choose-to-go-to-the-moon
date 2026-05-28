@@ -76,7 +76,7 @@
   font-family: var(--font-mono);
   font-weight: var(--weight-light);
   font-size: var(--text-sm);
-  color: var(--color-text-muted);
+  color: var(--color-accent);
   text-decoration: none;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -85,7 +85,7 @@
 
 .nav__link:hover,
 .nav__link:focus-visible {
-  color: var(--color-accent);
+  color: var(--color-text);
   outline: none;
 }
 

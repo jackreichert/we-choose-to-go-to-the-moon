@@ -37,10 +37,16 @@ body::after {
    Hero is transparent so the moon shows through it;
    all other sections have solid backgrounds so they cover it naturally. */
 main,
-header,
 footer {
   position: relative;
   z-index:  2;
+}
+
+/* Header must outrank main — both have position:relative, and DOM order
+   would otherwise put main (later sibling) on top, trapping the nav. */
+header {
+  position: relative;
+  z-index:  200;
 }
 
 /* Temporary scaffolding: keep empty sections scrollable until populated in later phases */
