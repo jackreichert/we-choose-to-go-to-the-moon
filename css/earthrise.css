@@ -1,0 +1,110 @@
+/* ============================================================
+   EARTHRISE — Full-width parallax photo with Anders quote
+   Placed between Missions and Future as a visual interlude.
+   ============================================================ */
+
+.earthrise {
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-accent-dim);
+}
+
+.earthrise__figure {
+  margin:  0;
+  padding: 0;
+}
+
+/* Clipping frame — image overflows top/bottom to allow parallax travel */
+.earthrise__frame {
+  position:    relative;
+  overflow:    hidden;
+  width:       100%;
+  height:      clamp(280px, 52vw, 720px);
+  line-height: 0;
+}
+
+.earthrise__img {
+  position:        absolute;
+  top:             -30%;
+  left:            0;
+  width:           100%;
+  height:          160%;
+  object-fit:      cover;
+  object-position: 50% 60%;
+  display:         block;
+  will-change:     transform;
+  filter:          brightness(0.88);
+  transition:      filter 0.5s ease;
+}
+
+.earthrise:hover .earthrise__img {
+  filter: brightness(0.96);
+}
+
+/* Caption bar — quote left, metadata right */
+.earthrise__caption {
+  max-width:       var(--max-width-content);
+  margin:          0 auto;
+  padding:         var(--space-6) var(--space-8) var(--space-16);
+  display:         flex;
+  justify-content: space-between;
+  align-items:     baseline;
+  gap:             var(--space-8);
+  border-top:      1px solid var(--color-accent-dim);
+}
+
+.earthrise__quote {
+  margin:  0;
+  padding: 0;
+}
+
+.earthrise__quote p {
+  font-family:  var(--font-heading);
+  font-size:    clamp(1.1rem, 2.4vw, 1.75rem);
+  font-weight:  var(--weight-regular);
+  font-style:   italic;
+  color:        var(--color-text);
+  line-height:  var(--leading-snug);
+}
+
+.earthrise__cite {
+  display:        block;
+  font-style:     normal;
+  font-family:    var(--font-body);
+  font-size:      var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color:          var(--color-text-muted);
+  white-space:    nowrap;
+}
+
+/* ---- Scroll reveal ---- */
+
+.js-reveal .earthrise__caption {
+  opacity:    0;
+  transform:  translateY(12px);
+  transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.js-reveal .earthrise__caption.is-revealed {
+  opacity:   1;
+  transform: none;
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 768px) {
+  .earthrise__caption {
+    flex-direction: column;
+    gap:            var(--space-3);
+    padding:        var(--space-4) var(--space-6) var(--space-12);
+  }
+
+  .earthrise__cite {
+    white-space: normal;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .earthrise__caption { opacity: 1; transform: none; transition: none; }
+}

@@ -1,0 +1,80 @@
+/* ============================================================
+   QUOTE — Phrase-by-phrase reveal of the key JFK line
+   ============================================================ */
+
+.quote-section {
+  background: linear-gradient(140deg, var(--color-bg-2) 0%, var(--color-bg) 100%);
+  border-top:    1px solid var(--color-border-dim);
+  border-bottom: 1px solid var(--color-border-dim);
+  scroll-margin-top: var(--nav-height);
+}
+
+.quote-section .section-inner {
+  max-width: var(--max-width-content);
+  margin:    0 auto;
+  padding:   var(--space-24) var(--space-8);
+}
+
+.section-label {
+  font-family:    var(--font-mono);
+  font-size:      var(--text-xs);
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color:          var(--color-accent);
+  margin-bottom:  var(--space-8);
+  display:        block;
+  opacity:        0;
+  transform:      translateY(16px);
+  transition:     opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section-label.visible {
+  opacity:   1;
+  transform: none;
+}
+
+.quote-text {
+  font-family:    var(--font-display);
+  font-size:      clamp(1.875rem, 4.8vw, 4rem);
+  font-weight:    var(--weight-regular);
+  line-height:    var(--leading-snug);
+  letter-spacing: -0.01em;
+  text-wrap:      balance;
+  margin:  0;
+  padding: 0;
+}
+
+.phrase {
+  display:    block;
+  opacity:    0;
+  transform:  translateY(18px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.phrase.visible    { opacity: 1; transform: none; }
+.phrase--accent    { color: var(--color-accent); }
+.phrase--italic    { font-style: italic; }
+
+.quote-attr {
+  font-family:    var(--font-mono);
+  font-size:      var(--text-xs);
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color:          var(--color-muted);
+  margin-top:     var(--space-12);
+  opacity:        0;
+  transform:      translateY(12px);
+  transition:     opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.5s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
+}
+
+.quote-attr.visible { opacity: 1; transform: none; }
+
+@media (max-width: 768px) {
+  .quote-section .section-inner { padding: var(--space-16) var(--space-6); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-label, .phrase, .quote-attr {
+    opacity: 1 !important; transform: none !important; transition: none !important;
+  }
+}

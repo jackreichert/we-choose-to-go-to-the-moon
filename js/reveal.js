@@ -10,6 +10,7 @@
   document.documentElement.classList.add('js-reveal');
 
   var TARGETS = [
+    '.stats__item',
     '.missions__entry',
     '.missions__decade',
     '.missions__header',
@@ -41,4 +42,28 @@
   );
 
   elements.forEach(function (el) { observer.observe(el); });
+
+  /* Quote phrase observer — staggered phrase-by-phrase reveal */
+  var phraseObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        var label = e.target.querySelector('.section-label');
+        var attr  = e.target.querySelector('.quote-attr');
+        if (label) {
+          setTimeout(function () { label.classList.add('visible'); }, 0);
+        }
+        e.target.querySelectorAll('.phrase').forEach(function (ph, i) {
+          setTimeout(function () { ph.classList.add('visible'); }, i * 140);
+        });
+        if (attr) {
+          setTimeout(function () { attr.classList.add('visible'); }, 8 * 140 + 200);
+        }
+        phraseObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.quote-section').forEach(function (el) {
+    phraseObs.observe(el);
+  });
 }());

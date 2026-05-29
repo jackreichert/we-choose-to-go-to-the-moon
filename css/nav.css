@@ -48,12 +48,12 @@
 
 /* Logo / site name */
 .nav__logo {
-  font-family: var(--font-heading);
+  font-family: var(--font-mono);
   font-weight: var(--weight-bold);
   font-size: var(--text-sm);
   color: var(--color-text);
   text-decoration: none;
-  letter-spacing: 0.04em;
+  letter-spacing: var(--track-label);
   text-transform: uppercase;
   white-space: nowrap;
   transition: color 0.2s ease;
@@ -73,10 +73,10 @@
 }
 
 .nav__link {
-  font-family: var(--font-body);
+  font-family: var(--font-mono);
   font-weight: var(--weight-light);
   font-size: var(--text-sm);
-  color: var(--color-text-muted);
+  color: var(--color-accent);
   text-decoration: none;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -85,7 +85,7 @@
 
 .nav__link:hover,
 .nav__link:focus-visible {
-  color: var(--color-accent);
+  color: var(--color-text);
   outline: none;
 }
 
@@ -102,6 +102,16 @@
   min-height: 44px;
   min-width: 44px;
   z-index: 101;
+}
+
+.nav__hamburger:focus-visible {
+  outline:        2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.nav__hamburger:active {
+  opacity:   0.65;
+  transform: scale(0.88);
 }
 
 .nav__hamburger-bar {

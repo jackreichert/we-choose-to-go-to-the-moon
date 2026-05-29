@@ -1,14 +1,11 @@
-/* Starfield — twinkling stars layered above the hero photo overlay
-   but below the quote text. Canvas is injected into .hero so it is
-   clipped to that section and never obscures page content.
+/* Starfield — full-page twinkling stars fixed behind all content.
+   Canvas is appended to document.body with position:fixed so it
+   covers the entire viewport at all scroll depths.
    Respects prefers-reduced-motion (static dots if reduced motion). */
 (function () {
   'use strict';
 
-  var hero = document.querySelector('.hero');
-  if (!hero) return;
-
-  var STAR_COUNT = 260;
+  var STAR_COUNT = 320;
   var reduced    = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var canvas = document.createElement('canvas');
@@ -16,31 +13,25 @@
 
   canvas.setAttribute('aria-hidden', 'true');
   canvas.style.cssText = [
-    'position:absolute',
+    'position:fixed',
     'inset:0',
     'pointer-events:none',
-    'z-index:1',
+    'z-index:0',
     'opacity:0.55'
   ].join(';');
 
-  /* Insert after the overlay element so stars sit above the dark overlay */
-  var overlay = hero.querySelector('.hero__overlay');
-  if (overlay && overlay.nextSibling) {
-    hero.insertBefore(canvas, overlay.nextSibling);
-  } else {
-    hero.insertBefore(canvas, hero.firstChild);
-  }
+  document.body.appendChild(canvas);
 
   var stars = [];
 
   function buildStars() {
-    canvas.width  = hero.offsetWidth;
-    canvas.height = hero.offsetHeight;
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
     stars = [];
     for (var i = 0; i < STAR_COUNT; i++) {
       stars.push({
         x:     Math.random() * canvas.width,
-        y:     Math.random() * canvas.height * 0.85, /* concentrate in upper sky */
+        y:     Math.random() * canvas.height,
         r:     Math.random() * 0.9 + 0.1,
         base:  Math.random() * 0.55 + 0.08,
         speed: Math.random() * 0.007 + 0.002,
@@ -54,7 +45,7 @@
     stars.forEach(function (s) {
       ctx.beginPath();
       ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(232, 224, 208, ' + s.base + ')';
+      ctx.fillStyle = 'rgba(230, 236, 242, ' + s.base + ')';
       ctx.fill();
     });
   }
@@ -63,6 +54,10 @@
   var raf;
 
   function drawAnimated() {
+    if (document.hidden) {
+      raf = null;
+      return;
+    }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     frame += 1;
     stars.forEach(function (s) {
@@ -70,7 +65,7 @@
       var opacity = s.base * (0.4 + 0.6 * t * t); /* square for sharper twinkle */
       ctx.beginPath();
       ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(232, 224, 208, ' + opacity + ')';
+      ctx.fillStyle = 'rgba(230, 236, 242, ' + opacity + ')';
       ctx.fill();
     });
     raf = requestAnimationFrame(drawAnimated);
@@ -83,18 +78,12 @@
   } else {
     drawAnimated();
 
-    /* Pause the rAF loop when the hero scrolls out of view — no point
-       animating an off-screen canvas. Resume if the user scrolls back. */
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (entries) {
-        if (entries[0].isIntersecting) {
-          if (!raf) drawAnimated();
-        } else {
-          cancelAnimationFrame(raf);
-          raf = null;
-        }
-      }, { threshold: 0 }).observe(hero);
-    }
+    /* Pause animation when tab is hidden, resume when visible */
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden && !raf) {
+        drawAnimated();
+      }
+    });
   }
 
   var resizeTimer;
@@ -102,6 +91,7 @@
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function () {
       if (raf) cancelAnimationFrame(raf);
+      raf = null;
       buildStars();
       if (reduced) { drawStatic(); } else { drawAnimated(); }
     }, 150);
